@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" id="html">
+    <head>
+        <title>Materials - DeltaGraphics</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="Assets/favicon.png">
+        <link rel="stylesheet" href="bootstrap.short.min.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <script defer src="swup/dist/swup.min.js"></script>
+        <script defer src="script.js"></script>
+        <script defer src="treeview.js"></script>
+        <script defer src="modals.js"></script>
+        <script defer src="assetcardmaterials.js"></script>
+    </head>
+    <body>
+        <div class="layout" id="layout">
+            <div class="nav" id="navbar">
+                <a href="/Home.html" class="navlink"><div class="logocontainer"><div class="logo"></div></Div></a>
+                <div class="navspacer"></div>
+                <a href="/Materials.html" class="navlink"><div class="logocontainer"><div class="iconmat"></div></Div></a>
+                <a href="/Models.html" class="navlink"><div class="logocontainer"><div class="iconmodel"></div></Div></a>
+                <div class="navspacer"></div>
+                <a href="/About.html" class="navlink"><div class="logocontainer"><div class="iconinfo"></div></Div></a>
+            </div>
+
+            <div class="transition-fade bottomcontainer" id="swup">
+                <div class="layoutbottom">
+
+                    <div class="sidebar">
+                        <div class="searchbarcontainer">
+                            <input type="text" class="searchbar" id="searchbar" placeholder="Search materials">
+                        </div>
+                        <div class="treeviewcontainer">
+                            <div class="treeview">
+
+                                <div class="treeviewcategorycontainer">
+                                    <div class="treeviewarrow" id="metalarrow" title="metal" onclick="togglesubcategory(this.title);"></div>
+                                    <span class="treeviewcategory" id="metal" onclick="selectcategory(this.id);">Metal</span>
+                                    <span class="categoryassetcount">1</span>
+                                </div>
+                                <div class="treeviewsubcategorycontainer" id="metalsubcategory">
+                                    <div class="categorylinewrapper">
+                                        <span class="treeviewsubcategory" id="metalrusty" title="metal" onclick="selectsubcategory(this.id, this.title);">Rusty</span>
+                                        <span class="categoryassetcount">1</span>
+                                    </div>
+                                    <div class="categorylinewrapper">
+                                        <span class="treeviewsubcategory" id="metalclean" title="metal" onclick="selectsubcategory(this.id, this.title);">Clean</span>
+                                        <span class="categoryassetcount">0</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="treeviewcategorycontainer">
+                                    <div class="treeviewarrow" id="concretearrow" title="concrete" onclick="togglesubcategory(this.title);"></div>
+                                    <span class="treeviewcategory" id="concrete" onclick="selectcategory(this.id);">Concrete</span>
+                                    <span class="categoryassetcount">1</span>
+                                </div>
+                                <div class="treeviewsubcategorycontainer" id="concretesubcategory">
+                                    <div class="categorylinewrapper">
+                                        <span class="treeviewsubcategory" id="concretepattern" title="concrete" onclick="selectsubcategory(this.id, this.title);">Pattern</span>
+                                        <span class="categoryassetcount">1</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="filteroptionscontainer">
+                        </div>
+                    </div>
+
+                    <div class="maincontainer" id="maincontainer">
+                        <div class="mat" id="plainrust1" onclick="showassetcard(this.id);enableselects();"><img src="Assets/plainrust1/plainrust1_thumbnail_640p.webp" class="img"><div class="mattitlecontainer"><span class="mattitle">Plain Rust</span></div></div>
+                        <div class="mat" id="concretepanels1" onclick="showassetcard(this.id);enableselects();"><img src="Assets/concretepanels1/concretepanels1_thumbnail_640p.webp" class="img"><div class="mattitlecontainer"><span class="mattitle">ConcretePanels</span></div></div>
+                        <div class="mat" id="mat3" onclick="showassetcard(this.id);enableselects();"><img src="Assets/testcircle.png" class="img"><div class="mattitlecontainer"><span class="mattitle">Material 3</span></div></div>
+                    </div>
+
+                    <div class="fullscreencontainer" id="fullscreencontainer">
+                        <div class="fullscreenbgclose" onclick="closefullscreenview()"></div>
+                        <div class="fullscreenimagecontainer">
+                            <img src="" class="fullscreenimage" id="fullscreenimage">
+                        </div>
+                        <div class="fullscreenclosebuttoncont">
+                            <div class="fullscreenbuttonbg">
+                                <div class="fullscreenclosebutton" onclick="closefullscreenview()"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modalbg" id="modalbg">
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </body>
+</html>
+

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="60.0px"
+   height="60.0px"
+   viewBox="0 0 60.0 60.0"
+   version="1.1"
+   id="SVGRoot"
+   sodipodi:docname="MaterialIconcolorful.svg"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview5011"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     showgrid="true"
+     inkscape:zoom="11.313709"
+     inkscape:cx="20.55029"
+     inkscape:cy="28.549435"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="115"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid5134" />
+  </sodipodi:namedview>
+  <defs
+     id="defs5006">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient31299">
+      <stop
+         style="stop-color:#1acdff;stop-opacity:1;"
+         offset="0"
+         id="stop31295" />
+      <stop
+         style="stop-color:#1a83ff;stop-opacity:1;"
+         offset="1"
+         id="stop31297" />
+    </linearGradient>
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect13817"
+       is_visible="false"
+       lpeversion="1"
+       nodesatellites_param="F,1,0,1,0,0.5,0,1 @ F,1,0,1,0,0.5,0,1 @ F,1,0,1,0,0.5,0,1 @ F,1,0,1,0,0.5,0,1"
+       unit="px"
+       method="auto"
+       mode="F"
+       radius="50"
+       chamfer_steps="1"
+       flexible="true"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect13813"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,1,0,1 @ F,0,0,1,0,1,0,1 @ F,0,0,1,0,1,0,1 @ F,0,0,1,0,1,0,1 @ F,0,0,1,0,1,0,1 @ F,0,0,1,0,1,0,1 @ F,0,0,1,0,1,0,1"
+       unit="px"
+       method="auto"
+       mode="F"
+       radius="1"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect5927"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,1,0,1,0,0.5,0,1 @ F,1,0,1,0,0.5,0,1 @ F,1,0,1,0,0.5,0,1 @ F,1,0,1,0,0.5,0,1"
+       unit="px"
+       method="auto"
+       mode="F"
+       radius="50"
+       chamfer_steps="1"
+       flexible="true"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient31299"
+       id="linearGradient31301"
+       x1="5.7428291"
+       y1="30"
+       x2="54.257171"
+       y2="30"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path5925"
+       style="display:inline;fill:url(#linearGradient31301);fill-opacity:1;stroke:none;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="M 30.255859 5.7441406 A 24.771488 24.771488 0 0 0 5.7441406 30.255859 A 23.751712 23.751712 0 0 0 29.744141 54.255859 A 24.771488 24.771488 0 0 0 54.255859 29.744141 A 23.751711 23.751711 0 0 0 30.255859 5.7441406 z M 30.013672 12.273438 C 31.596128 12.312311 32.997514 12.822867 34 14 C 35.645945 15.932692 34.999996 19.000002 31 21 C 28.171576 22.414213 26.771763 23.375617 25 25 C 23.426757 26.442377 21.999999 28.000002 21 30 C 19.000002 33.999996 16.570866 33.405993 15 32 C 11.443801 28.817049 14.682919 21.43143 18 18 C 20.746258 15.159072 25.969618 12.174095 30.013672 12.273438 z " />
+  </g>
+</svg>
