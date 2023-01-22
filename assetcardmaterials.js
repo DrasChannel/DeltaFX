@@ -240,16 +240,7 @@ function enableselects(){
 
 
 
-function openfullscreenview() {
-    let = imageid = document.querySelector('.image.selected').id
-    document.getElementById("fullscreenimage").setAttribute("src", "/Assets/"+openassetid+"/"+openassetid+"_"+imageid+"_2160p.jpeg");
-    document.getElementById("fullscreencontainer").classList.toggle("active")
-}
 
-function closefullscreenview(){
-    document.getElementById("fullscreencontainer").classList.toggle("active")
-    document.getElementById("fullscreenimage").setAttribute("src", "");
-}
 
 function closeassetcard() {
     document.getElementById(openassetid).setAttribute("onclick", "showassetcard(this.id);enableselects();");

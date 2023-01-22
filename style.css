@@ -958,7 +958,7 @@ body{
     height: 100%;
     overflow: hidden;
     object-fit: fill;
-    background-color: #212121;
+    background-color: #1c1c1c;
     z-index: 7;
     opacity: 0;
     pointer-events: none;
@@ -973,11 +973,18 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2;
 }
 .fullscreenimage{
     max-width: 100%;
     max-height: 100vh;
     z-index: 2;
+
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 .fullscreenclosebuttoncont{
     display: flex;
