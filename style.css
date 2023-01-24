@@ -356,21 +356,18 @@ body{
 .iconmodel:hover{
     filter: none;
     background-image: url("Assets/svg/ModelIconcolorful.svg");
-    transition-duration: 150ms;
 }
 .iconinfo{
     height: 45px;
     width: 45px;
     background-image: url("Assets/svg/infoIcon.svg");
     background-size: 100%;
-    transition-duration: 150ms;
     margin: 5px;
     margin-right: 9px;
 }
 .iconinfo:hover{
     filter: none;
     background-image: url("Assets/svg/infoIconcolorful.svg");
-    transition-duration: 150ms;
 }
 
 
@@ -924,13 +921,17 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 3rem;
     height: 3rem;
     background-color: #2b2b2b;
-    border-radius: 100%;
+    border-radius: 200px;
     z-index: 2;
     margin: 25px;
     cursor: pointer;
+}
+.fullscreenbuttonbg.ivb-big{
+    height: 6rem;
 }
 .fullscreenbutton{
     background-image: url("Assets/svg/fullscreen.svg");
@@ -939,14 +940,11 @@ body{
     width: 3rem;
     height: 3rem;
     z-index: 3;
-    transition-duration: 150ms;
     background-repeat: no-repeat;
     border-radius: 100%;
 }
 .fullscreenbutton:hover{
-    filter: none;
     background-image: url("Assets/svg/fullscreencolorful.svg");
-    transition-duration: 150ms;
 }
 .fullscreencontainer{
     display: flex;
@@ -989,6 +987,13 @@ body{
     background-size: 100vh;
     z-index: 2;
 }
+.fullscreenbgclose{
+    position: absolute;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
 .fullscreenclosebuttoncont{
     display: flex;
     position: absolute;
@@ -999,24 +1004,30 @@ body{
 .fullscreenclosebutton{
     background-image: url("Assets/svg/closebutton.svg");
     background-position: center;
-    background-size: 1.4rem;
-    width: 3rem;
-    height: 3rem;
-    transition-duration: 150ms;
+    background-size: 21px;
+    width: 48px;
+    height: 48px;
     background-repeat: no-repeat;
     border-radius: 100%;
+    padding: 10px;
+    margin: 6px 6px 0 6px;
 }
 .fullscreenclosebutton:hover{
-    filter: none;
     background-image: url("Assets/svg/closebuttoncolorful.svg");
-    transition-duration: 150ms;
 }
-.fullscreenbgclose{
-    position: absolute;
-    background-color: transparent;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+.fullscreendownloadbutton{
+    background-image: url("Assets/svg/download.svg");
+    background-position: center;
+    background-size: 21px;
+    width: 48px;
+    height: 48px;
+    background-repeat: no-repeat;
+    border-radius: 100%;
+    padding: 10px;
+    margin: 0 6px 6px 6px;
+}
+.fullscreendownloadbutton:hover{
+    background-image: url("Assets/svg/downloadcolorful.svg");
 }
 
 

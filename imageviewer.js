@@ -1,7 +1,19 @@
 function openfullscreenview() {
     // activate the image viewer
     let = imageid = document.querySelector('.image.selected').id
-    document.getElementById("fullscreenimage").style.backgroundImage = ("url(/Assets/"+openassetid+"/"+openassetid+"_"+imageid+"_2160p.jpeg)");
+    document.getElementById("fullscreencontainer").innerHTML = `
+    <div class="fullscreenbgclose" onclick="closefullscreenview()"></div>
+    <div class="fullscreenimagecontainer" id="fullscreenimagecontainer"onclick="closefullscreenview()">
+        <div class="fullscreenimage" id="fullscreenimage" ></div>
+    </div>
+    <div class="fullscreenclosebuttoncont">
+        <div class="fullscreenbuttonbg ivb-big">
+            <div class="fullscreenclosebutton" onclick="closefullscreenview()"></div>
+            <a style="display: contents;" download="`+openassetid+"/"+openassetid+"_"+imageid+`_3072p.jpeg" href="/Assets/`+openassetid+"/"+openassetid+"_"+imageid+`_3072p.jpeg"><div class="fullscreendownloadbutton"></div></a>
+        </div>
+    </div>
+    `
+    document.getElementById("fullscreenimage").style.backgroundImage = ("url(/Assets/"+openassetid+"/"+openassetid+"_"+imageid+"_3072p.jpeg)");
     document.getElementById("fullscreencontainer").classList.toggle("active")
 
     // basic image viewer variables
@@ -74,5 +86,6 @@ function closefullscreenview(){
     document.getElementById("fullscreenimage").style.transform = ``
     document.getElementById("fullscreenimagecontainer").style.transform = "translate(0px, 0px) scale(1)";
     document.getElementById("fullscreenimage").style.backgroundImage = ("");
+    document.getElementById("fullscreencontainer").innerHTML = ""
 }
 
