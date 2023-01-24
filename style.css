@@ -982,11 +982,11 @@ body{
     justify-content: center;
 
     z-index: 2;
-    transition-duration: 0ms !important;
 }
-.fullscreenimage{
-    width: auto;
-    height: 100%;
+.fullscreenimage {
+    width: 100vh;
+    height: 100vh;
+    background-size: 100vh;
     z-index: 2;
 }
 .fullscreenclosebuttoncont{
