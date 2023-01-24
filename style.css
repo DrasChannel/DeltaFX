@@ -861,8 +861,8 @@ body{
     flex-direction: column;
     background-color: #212121;
     border: 1px solid rgba(200, 200, 200, 0.1);;
-    width: 7rem;
-    height: 20rem;
+    width: 112px;
+    height: 320px;
     border-radius: 12px;
     margin-left: 25px;
     z-index: 2;
@@ -936,9 +936,9 @@ body{
 .fullscreenbutton{
     background-image: url("Assets/svg/fullscreen.svg");
     background-position: center;
-    background-size: 1.5rem;
-    width: 3rem;
-    height: 3rem;
+    background-size: 24px;
+    width: 48px;
+    height: 48px;
     z-index: 3;
     background-repeat: no-repeat;
     border-radius: 100%;
