@@ -1,39 +1,58 @@
 function openfullscreenview() {
     let = imageid = document.querySelector('.image.selected').id
-    document.getElementById("fullscreenimage").setAttribute("src", "/Assets/"+openassetid+"/"+openassetid+"_"+imageid+"_2160p.jpeg");
+    document.getElementById("fullscreenimage").style.background = ("url(/Assets/"+openassetid+"/"+openassetid+"_"+imageid+"_2160p.jpeg)");
     document.getElementById("fullscreencontainer").classList.toggle("active")
 
-    const container = document.querySelector('.fullscreenimagecontainer')
-    let img = document.getElementById("fullscreenimage");
+    let scale = 1,
+        panning = false,
+        pointX = 0,
+        pointY = 0,
+        start = { x: 0, y: 0 },
+        zoom = document.getElementById("fullscreenimagecontainer");
 
-    let zoom = 1
-    let mtcX;
-    let mtcY;
+    function setTransform() {
+        zoom.style.transform = "translate(" + pointX + "px, " + pointY + "px) scale(" + scale + ")";
+    }
 
-    container.addEventListener('wheel', e => {
+    zoom.onmousedown = function (e) {
+        e.preventDefault();
+        start = { x: e.clientX - pointX, y: e.clientY - pointY };
+        panning = true;
+    }
 
-        zoom += e.deltaY * -0.01
-        zoom = Math.min(Math.max(1, zoom), 5)
+    zoom.onmouseup = function (e) {
+        panning = false;
+    }
 
-        console.log(((window.innerHeight/2)-e.offsetX)*(zoom-1))
-        console.log(((window.innerHeight/2)-e.offsetY)*(zoom-1))
-
-        if (zoom == 1){
-            mtcX = 0
-            mtcY = 0
+    zoom.onmousemove = function (e) {
+        e.preventDefault();
+        if (!panning) {
+            return;
         }
-        else{
-            mtcX = ((window.innerHeight/2)-e.offsetX)*(zoom-1)
-            mtcY = ((window.innerHeight/2)-e.offsetY)*(zoom-1)
+        pointX = (e.clientX - start.x);
+        pointY = (e.clientY - start.y);
+        setTransform();
+    }
+
+    zoom.onwheel = function (e) {
+        if(panning == false){
+            e.preventDefault();
+            var xs = (e.clientX - pointX) / scale,
+                ys = (e.clientY - pointY) / scale,
+            delta = (e.wheelDelta ? e.wheelDelta : -e.deltaY);
+            (delta > 0) ? (scale *= 1.2) : (scale /= 1.2);
+            pointX = e.clientX - xs * scale;
+            pointY = e.clientY - ys * scale;
+
+            setTransform();
         }
-        
-        img.style.transform = `translate(${mtcX}px, ${mtcY}px) scale(${zoom}) `
-    })
+    }
 }
 
 function closefullscreenview(){
     document.getElementById("fullscreencontainer").classList.toggle("active")
     document.getElementById("fullscreenimage").setAttribute("src", "");
     document.getElementById("fullscreenimage").style.transform = ``
+    document.getElementById("fullscreenimagecontainer").style.transform = "translate(0px, 0px) scale(1)";
 }
 
