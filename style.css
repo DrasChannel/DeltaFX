@@ -425,7 +425,7 @@ body{
     width: -webkit-fill-available;
     width: -moz-available;
     font-size: 18px;
-    color: white;
+    color: #f0f0f0;
     outline: none;
     transition: all 150ms;
     margin-top: 10rem;
@@ -864,7 +864,7 @@ body{
     width: 112px;
     height: 320px;
     border-radius: 12px;
-    margin-left: 25px;
+    margin-left: 20px;
     z-index: 2;
 }
 .image{
@@ -882,15 +882,15 @@ body{
     box-sizing: border-box;
 }
 #image1{
-    background-size: 6rem;
+    background-size: 96px;
     background-position: -2px;
 }
 #image2{
-    background-size: 6rem;
+    background-size: 96px;
     background-position: -2px;
 }
 #image3{
-    background-size: 6rem;
+    background-size: 96px;
     background-position: -2px;
 }
 .image.selected{
@@ -904,34 +904,56 @@ body{
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: all 150ms;
-    z-index: 1;
+    transition: all 200ms;
+    z-index: 2;
 }
 .imageoptionscontainer:hover{
     opacity: 1;
 }
-.fullscreenbuttoncontainer{
+.imageindicatorcontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+.imageindicator{
+    width: 4px;
+    border-radius: 20px;
+    height: 140px;
+    z-index: 1;
+    background-color: rgba(128, 128, 128, 0.6);
+    margin-left: 28px;
+}
+.fullscreencontrolscontainer {
     display: flex;
     width: 7rem;
     height: 100%;
-    justify-content: end;
+    width: 100%;
+    justify-content: space-between;
     align-items: flex-end;
+    position: absolute;
+}
+.fullscreenbuttonscontainer{
+    display: flex;
+    flex-direction: row;
+    margin: 25px;
 }
 .fullscreenbuttonbg{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 3rem;
-    height: 3rem;
+    height: 48px;
     background-color: #262626;
     border-radius: 200px;
     z-index: 2;
-    margin: 25px;
     cursor: pointer;
 }
 .fullscreenbuttonbg.ivb-big{
     height: 6rem;
+    margin: 25px;
+    width: 48px;
 }
 .fullscreenbutton{
     background-image: url("Assets/svg/fullscreen.svg");
@@ -939,12 +961,31 @@ body{
     background-size: 24px;
     width: 48px;
     height: 48px;
-    z-index: 3;
     background-repeat: no-repeat;
     border-radius: 100%;
 }
 .fullscreenbutton:hover{
     background-image: url("Assets/svg/fullscreencolorful.svg");
+}
+.fullscreenpreviewmapsb{
+    text-align: center;
+    line-height: 46px;
+    background-color: #262626;
+    color: #cccccc;
+    height: 48px;
+    padding: 0 20px;
+    margin-right: 15px;
+    border-radius: 96px;
+    user-select: none;
+    cursor: pointer;
+    z-index: 3;
+    font-weight: 375;
+}
+.fullscreenpreviewmapsb:hover{
+    background-color: rgb(53, 53, 53);
+}
+.fullscreenpreviewmapsb:active{
+    background-color: rgb(63, 63, 63);
 }
 .fullscreencontainer{
     display: flex;
@@ -1045,7 +1086,6 @@ body{
 .fullscreenimginfo-imginfo{
     color: #b3b3b3;
     font-size: 15px;
-    margin-top: 2px;
     font-weight: 500;
 }
 
@@ -1121,7 +1161,7 @@ body{
     transition-duration: 150ms;
 }
 .modtitle{
-    color: white;
+    color: #f0f0f0;
     font-family: com;
     font-weight: 400;
     margin-top: 258px;
@@ -1157,7 +1197,7 @@ body{
     -ms-user-select: none;
     user-select: none;
 
-    color: white;
+    color: #f0f0f0;
 }
 .dropdown-select{
     display: flex;

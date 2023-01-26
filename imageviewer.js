@@ -52,6 +52,11 @@ function openfullscreenview() {
         zoom.style.cursor = 'grab'
         zoom.style.transitionDuration = "100ms"
     }
+    zoom.onmouseleave = function (e) {
+        panning = false;
+        zoom.style.cursor = 'grab'
+        zoom.style.transitionDuration = "100ms"
+    }
     zoom.onmousemove = function (e) {
         e.preventDefault();
         if (!panning) {

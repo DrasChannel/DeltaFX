@@ -32,7 +32,13 @@ function showassetcard(id3) {
                     <div class="image selected" id="image2" onclick="selectimage(this.id)"></div>
                     <div class="image" id="image3" onclick="selectimage(this.id)"></div>
                 </div>
-                <div class="fullscreenbuttoncontainer">
+            </div>
+            <div class="fullscreencontrolscontainer">
+                <div class="imageindicatorcontainer">
+                    <div class="imageindicator"></div>
+                </div>
+                <div class="fullscreenbuttonscontainer">
+                    <div class="fullscreenpreviewmapsb" onclick="">Preview maps</div>
                     <div class="fullscreenbuttonbg">
                         <div class="fullscreenbutton" onclick="openfullscreenview()"></div>
                     </div>
