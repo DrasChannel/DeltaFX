@@ -11,6 +11,12 @@ function openfullscreenview() {
             <div class="fullscreenclosebutton" onclick="closefullscreenview()"></div>
             <a style="display: contents;" download="`+openassetid+"/"+openassetid+"_"+imageid+`_3072p.jpeg" href="/Assets/`+openassetid+"/"+openassetid+"_"+imageid+`_3072p.jpeg"><div class="fullscreendownloadbutton"></div></a>
         </div>
+        <div class="fullscreenimginfo">
+            <span>Scroll to zoom</span>
+            <span>click & drag to pan</span>
+            <span class="fullscreenimginfo-imginfo" style="margin-top: 12px;">`+openassetid+"_"+imageid+`</span>
+            <span class="fullscreenimginfo-imginfo">3072x3072px</span>
+        </div
     </div>
     `
     document.getElementById("fullscreenimage").style.backgroundImage = ("url(/Assets/"+openassetid+"/"+openassetid+"_"+imageid+"_3072p.jpeg)");
@@ -36,12 +42,14 @@ function openfullscreenview() {
     zoom.onmousedown = function (e) {
         e.preventDefault();
         zoom.style.transitionDuration = "0ms"
+        zoom.style.cursor = 'grabbing'
         start = { x: e.clientX - pointX, y: e.clientY - pointY };
         panning = true;
         
     }
     zoom.onmouseup = function (e) {
         panning = false;
+        zoom.style.cursor = 'grab'
         zoom.style.transitionDuration = "100ms"
     }
     zoom.onmousemove = function (e) {
