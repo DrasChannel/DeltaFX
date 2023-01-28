@@ -9,7 +9,7 @@
         "resolutions" : ["8K", "4K", "2K"],
         "fileformats" : ["PNG", "JPG", "TIF"],
         "texturemaps" : ["Base Color", "Normal", "Roughness", "Height", "Ambient Occlusion"],
-        "texturemapids" : ["basecolor", "normal", "roughness", "height", "ambientocclusion"],
+        "texturemapids" : ["basecolor", "normalgl", "roughness", "height", "ao"],
         "otherfiles" : [],
         "otherfileids" : []
     },
@@ -24,7 +24,7 @@
         "resolutions" : ["8K", "4K", "2K"],
         "fileformats" : ["PNG", "JPG", "TIF"],
         "texturemaps" : ["Base Color", "Normal", "Roughness", "Height", "Ambient Occlusion"],
-        "texturemapids" : ["basecolor", "normal", "roughness", "height", "ambientocclusion"],
+        "texturemapids" : ["basecolor", "normalgl", "roughness", "height", "ao"],
         "otherfiles" : [],
         "otherfileids" : []
     },
@@ -39,7 +39,7 @@
         "resolutions" : ["4K", "2K"],
         "fileformats" : ["PNG", "JPEG+OBJ"],
         "texturemaps" : ["Base Color", "Normal", "Roughness", "Height"],
-        "texturemapids" : ["basecolor", "normal", "roughness", "height"],
+        "texturemapids" : ["basecolor", "normalgl", "roughness", "height"],
         "otherfiles" : ["Mesh (21849 poly)","Raw scan"],
         "otherfileids" : ["mesh","rawscan"]
     }

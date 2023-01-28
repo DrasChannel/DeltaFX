@@ -38,7 +38,7 @@ function showassetcard(id3) {
                     <div class="imageindicator"></div>
                 </div>
                 <div class="fullscreenbuttonscontainer">
-                    <div class="fullscreenpreviewmapsb" onclick="">Preview maps</div>
+                    <div class="fullscreenpreviewmapsb" onclick="previewmaps()">Preview maps</div>
                     <div class="fullscreenbuttonbg">
                         <div class="fullscreenbutton" onclick="openfullscreenview()"></div>
                     </div>
