@@ -1,24 +1,15 @@
-/*
-    ┏━━━━━━━━━━━━━━━━━━━━━━┓
-    ┃  scriptassetcard.js  ┃
-    ┗━━━━━━━━━━━━━━━━━━━━━━┛
-
-    Script for asset card in delta graphics
-*/
-
-
 
 // variables
 
 var openassetid = 0
 
-
 // code for asset cards
 
 function showassetcard(id3) {
-
     //sets openassetid to the id that you click on
     openassetid = id3
+
+    history.pushState({}, "", "?id=" + openassetid);
 
     //adds the content of the popup to the modal container
     document.getElementById("modalbg").innerHTML = `
@@ -243,17 +234,13 @@ function enableselects(){
 
 
 
-
-
-
-
-
 function closeassetcard() {
     document.getElementById(openassetid).setAttribute("onclick", "showassetcard(this.id);enableselects();");
     openassetid = 0
     document.getElementById("modalbg").setAttribute("class", "");
     document.getElementById("html").style.overflow = "overlay";
     document.getElementById("modalbg").innerHTML = ""
+    history.replaceState({}, "", "/Materials.html");
 }
 
 function selectimage(id2){
