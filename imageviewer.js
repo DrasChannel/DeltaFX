@@ -126,7 +126,7 @@ function previewmaps() {
         imgs.setAttribute("class", "image")
         imgs.setAttribute("id", "map"+i)
         imgs.setAttribute("onclick", "selectmap(this.id)")
-        imgs.style.backgroundImage = "url(/Content/"+openassetid+"/4K_png/"+openassetid+"_4K_"+assetinfo[openassetid].texturemapids[i-1]+".png)"
+        imgs.style.backgroundImage = "url(/Content/"+openassetid+"/192p/"+assetinfo[openassetid].texturemapids[i-1]+".jpg)"
         imagessContainer.appendChild(imgs);
     }
     document.getElementById("map1").setAttribute("class", "image selected")
