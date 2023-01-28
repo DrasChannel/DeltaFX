@@ -1043,6 +1043,13 @@ body{
     background-size: 100vh;
     z-index: 2;
 }
+.fullscreenmap {
+    width: 100vh;
+    height: 100vh;
+    background-size: 100vh;
+    z-index: 2;
+    image-rendering: pixelated;
+}
 .fullscreenbgclose{
     position: absolute;
     background-color: transparent;
