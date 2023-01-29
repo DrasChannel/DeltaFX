@@ -60,12 +60,16 @@ body{
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    margin-top: 80px;
 }
-.bannercontainer{
+.bannercontainer {
     display: flex;
     width: 100%;
-    height: 91.5vh;
+    height: 100vh;
+    background: url("Assets/sky.jpg") no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 .banner-left{
     display: flex;
@@ -395,6 +399,7 @@ body{
 
     -webkit-backdrop-filter: blur(40px);
     backdrop-filter: blur(40px);
+    transition-duration: 0ms !important;
 }
 .navlink{
     margin: 0 15px;
