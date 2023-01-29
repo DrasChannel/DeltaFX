@@ -411,6 +411,7 @@ body{
     height: 100%;
 }
 .logo{
+    position: relative;
     height: 50px;
     width: 50px;
     background-image: url("Assets/svg/logo.svg");
@@ -420,10 +421,47 @@ body{
     filter: none;
     background-image: url("Assets/svg/logocolorful.svg");
 }
+.navtooltip {
+    opacity: 0;
+    pointer-events: none;
+    width: 75px;
+    background-color: rgba(33, 33, 33, 100);
+    color: #f0f0f0;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    font-size: 15px;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 140%;
+    left: 50%;
+    margin-left: -37.5px;
+    transition-delay: 0s;
+}
+  
+.logo:hover .navtooltip {
+    opacity: 1;
+    transition-delay: 1.5s;
+}
+.iconmat:hover .navtooltip {
+    opacity: 1;
+    transition-delay: 1.5s;
+}
+.iconmodel:hover .navtooltip {
+    opacity: 1;
+    transition-delay: 1.5s;
+}
+.iconinfo:hover .navtooltip {
+    opacity: 1;
+    transition-delay: 1.5s;
+}
 .navspacer{
     flex-grow: 1;
 }
 .iconmat{
+    position: relative;
     height: 50px;
     width: 50px;
     background-image: url("Assets/svg/MaterialIcon.svg");
@@ -434,6 +472,7 @@ body{
     background-image: url("Assets/svg/MaterialIconcolorful.svg");
 }
 .iconmodel{
+    position: relative;
     height: 50px;
     width: 50px;
     background-image: url("Assets/svg/ModelIcon.svg");
@@ -444,11 +483,13 @@ body{
     background-image: url("Assets/svg/ModelIconcolorful.svg");
 }
 .iconinfo{
-    height: 45px;
-    width: 45px;
+    position: relative;
+    height: 50px;
+    width: 50px;
     background-image: url("Assets/svg/infoIcon.svg");
-    background-size: 100%;
-    margin: 5px;
+    background-size: 95%;
+    background-position: center center;
+    background-repeat: no-repeat;
     margin-right: 9px;
 }
 .iconinfo:hover{

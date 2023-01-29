@@ -12,7 +12,7 @@ swup.on('contentReplaced', scrollfade);
 
 // Define the function that does scrolling and fading
 let scrlfdFunc = function scrlfd() {
-    let scroll = (window.pageYOffset / 200).toString();
+    let scroll = (window.pageYOffset / 400).toString();
     let scroll2 = (window.pageYOffset / 5).toString();
     if(scroll>0.5){
         scroll=0.5
