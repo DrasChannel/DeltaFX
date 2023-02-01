@@ -28,7 +28,6 @@ let scrlfdFunc = function scrlfd() {
 function scrollfade(){
     window.scrollTo({top: 0,behavior: 'instant'});
     if(window.location.href.indexOf("Home") !== -1){
-        console.log(1)
         document.getElementById("navbar").style.background = "rgba(33, 33, 33, 0)"
         document.getElementById("navbar").style.backdropFilter = "blur(0px)"
         window.addEventListener("scroll", scrlfdFunc)

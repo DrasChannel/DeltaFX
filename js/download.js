@@ -1,14 +1,18 @@
 function downloadmaterial(){
+    // find out if i'm downloading materials or other assets
+    document.getElementById("downloadmat").classList.add('disabled')
     let page = window.location.pathname.split("/").pop();
-    let checkboxes = document.querySelectorAll('.info-checkbox');
+
+    //checkbox variables
+    let checkboxestex = document.getElementById("info-checkbox-textures").querySelectorAll('.info-checkbox');
     let checkedboxes = [];
 
-    for (let i = 0; i < checkboxes.length; i++) {
-        if (checkboxes[i].checked) {
-          checkedboxes.push(checkboxes[i].id);
+    // find out which checkboxes are checked and put them in a variable
+    for (let i = 0; i < checkboxestex.length; i++) {
+        if (checkboxestex[i].checked) {
+          checkedboxes.push(checkboxestex[i].id);
         }
     }
-    console.log("Checked checkboxes:", checkedboxes);
 
     var zip = new JSZip();
     let promises = [];
@@ -29,5 +33,6 @@ function downloadmaterial(){
         link.href = URL.createObjectURL(content);
         link.download = openassetid+".zip";
         link.click();
+        document.getElementById("downloadmat").classList.remove('disabled')
     });
 }

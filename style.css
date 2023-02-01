@@ -880,6 +880,11 @@ body{
 .button-large.primary:active{
     background-color: #137ab9;
 }
+.button-large.primary.disabled{
+    color: #696969;
+    background-color: #303030;
+    pointer-events: none;
+}
 .assetinfocontainer{
     display: flex;
     flex-direction: column;
