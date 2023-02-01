@@ -14,6 +14,7 @@ function downloadmaterial(){
         }
     }
 
+    // create zip arcive
     var zip = new JSZip();
     let promises = [];
     for (var i = 0; i < checkedboxes.length; i++) {
