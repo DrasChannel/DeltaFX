@@ -94,6 +94,8 @@ function openfullscreenview() {
 }
 
 function previewmaps() {
+    let page = window.location.pathname.split("/").pop();
+    console.log( page.replace(".html", "") );
     // activate the image viewer
     let = imageid = document.querySelector('.image.selected').id
     document.getElementById("fullscreencontainer").innerHTML = `
