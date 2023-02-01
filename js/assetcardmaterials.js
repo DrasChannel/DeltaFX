@@ -72,7 +72,7 @@ function showassetcard(id3) {
                     <div class="infocontainer info-downloadsize">
                         <div class="info-download-container">
                             <span class="info-title">Download Size</span>
-                            <span class="info-text">16mb</span>
+                            <span class="info-text">work in progress</span>
                         </div>
                         <a class="source-file-link"></a>
                     </div>
@@ -93,7 +93,7 @@ function showassetcard(id3) {
                         </div>
                     </div>
                 </div>
-                <button class="button-large primary">Download</button>
+                <button class="button-large primary" id="downloadmat" onclick="downloadmaterial()">Download</button>
             </div>
         </div>
     </div>
@@ -115,7 +115,7 @@ function showassetcard(id3) {
     for (let i = 0; i < checkfilestex.length; i++) {
         checkfilestexcontainer.innerHTML += `
         <div class="info-checkbox-line">
-            <input type="checkbox" class="info-checkbox" name="`+assetinfo[id3].texturemapids[i]+`" checked="">
+            <input type="checkbox" class="info-checkbox" id="`+assetinfo[id3].texturemapids[i]+`" checked="">
             <span class="info-checkmark">
                 <img class="check-svg" src="Assets/svg/check.svg">
             </span>
@@ -130,7 +130,7 @@ function showassetcard(id3) {
     for (let i = 0; i < checkfilesoth.length; i++) {
         checkfilesothcontainer.innerHTML += `
         <div class="info-checkbox-line">
-            <input type="checkbox" class="info-checkbox" name="`+assetinfo[id3].otherfileids[i]+`" checked="">
+            <input type="checkbox" class="info-checkbox" id="`+assetinfo[id3].otherfileids[i]+`" checked="">
             <span class="info-checkmark">
                 <img class="check-svg" src="Assets/svg/check.svg">
             </span>
@@ -142,7 +142,7 @@ function showassetcard(id3) {
     for (let i = 0; i < assetinfo[id3].resolutions.length; i++) {
         if(i==0){
             document.getElementById("resselect").innerHTML += `<div class="dropdown-option selected" id="resoption">`+assetinfo[id3].resolutions[i]+`</div>`
-            document.getElementById("resselected").innerHTML = `<span>`+assetinfo[id3].resolutions[i]+`</span>`
+            document.getElementById("resselected").innerHTML = `<span id="resspan">`+assetinfo[id3].resolutions[i]+`</span>`
         }
         else{
             document.getElementById("resselect").innerHTML += `<div class="dropdown-option" id="resoption">`+assetinfo[id3].resolutions[i]+`</div>`
@@ -151,7 +151,7 @@ function showassetcard(id3) {
     for (let v = 0; v < assetinfo[id3].fileformats.length; v++) {
         if(v==0){
             document.getElementById("formatselect").innerHTML += `<div class="dropdown-option selected" id="formatoption">`+assetinfo[id3].fileformats[v]+`</div>`
-            document.getElementById("formatselected").innerHTML = `<span>`+assetinfo[id3].fileformats[v]+`</span>`
+            document.getElementById("formatselected").innerHTML = `<span id="formatspan">`+assetinfo[id3].fileformats[v]+`</span>`
         }
         else{
             document.getElementById("formatselect").innerHTML += `<div class="dropdown-option" id="formatoption">`+assetinfo[id3].fileformats[v]+`</div>`

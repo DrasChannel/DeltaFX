@@ -1,3 +1,6 @@
+// webpage name variable
+let page = 0
+
 function openfullscreenview() {
     // activate the image viewer
     let = imageid = document.querySelector('.image.selected').id
@@ -94,8 +97,7 @@ function openfullscreenview() {
 }
 
 function previewmaps() {
-    let page = window.location.pathname.split("/").pop();
-    console.log( page.replace(".html", "") );
+    page = window.location.pathname.split("/").pop();
     // activate the image viewer
     let = imageid = document.querySelector('.image.selected').id
     document.getElementById("fullscreencontainer").innerHTML = `
@@ -128,12 +130,12 @@ function previewmaps() {
         imgs.setAttribute("class", "image")
         imgs.setAttribute("id", "map"+i)
         imgs.setAttribute("onclick", "selectmap(this.id)")
-        imgs.style.backgroundImage = "url(/Content/"+openassetid+"/192p/"+assetinfo[openassetid].texturemapids[i-1]+".jpg)"
+        imgs.style.backgroundImage = "url(/Content/"+page.replace(".html", "")+"/"+openassetid+"/192p/"+assetinfo[openassetid].texturemapids[i-1]+".jpg)"
         imagessContainer.appendChild(imgs);
     }
     document.getElementById("map1").setAttribute("class", "image selected")
 
-    document.getElementById("fullscreenimage").style.backgroundImage = ("url(/Content/"+openassetid+"/4K_png/"+openassetid+"_4K_"+assetinfo[openassetid].texturemapids[0]+".png)");
+    document.getElementById("fullscreenimage").style.backgroundImage = ("url(/Content/"+page.replace(".html", "")+"/"+openassetid+"/4K_png/"+openassetid+"_4K_"+assetinfo[openassetid].texturemapids[0]+".png)");
     document.getElementById("fullscreencontainer").classList.toggle("active")
 
     // basic image viewer variables
@@ -213,8 +215,7 @@ function selectmap(id){
     }
     document.getElementById(id).setAttribute("class", "image selected")
     let newid = id.replace("map", "")
-    console.log(newid)
-    document.getElementById("fullscreenimage").style.backgroundImage = ("url(/Content/"+openassetid+"/4K_png/"+openassetid+"_4K_"+assetinfo[openassetid].texturemapids[Number(newid)-1]+".png)");
+    document.getElementById("fullscreenimage").style.backgroundImage = ("url(/Content/"+page.replace(".html", "")+"/"+openassetid+"/4K_png/"+openassetid+"_4K_"+assetinfo[openassetid].texturemapids[Number(newid)-1]+".png)");
 
 }
 
