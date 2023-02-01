@@ -7,7 +7,6 @@ This repo contains source code for the website.
 
 The website is built using plain HTML/CSS/JS.
 All it needs is to be ran on a live server for now.
-Php will be added later.
 
 ## Todo
 
