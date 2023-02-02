@@ -25,8 +25,8 @@
         "fileformats" : ["PNG", "JPG", "TIF"],
         "texturemaps" : ["Base Color", "Normal", "Roughness", "Height", "Ambient Occlusion"],
         "texturemapids" : ["basecolor", "normalgl", "roughness", "height", "ao"],
-        "otherfiles" : [],
-        "otherfileids" : []
+        "otherfiles" : ["Sbsar"],
+        "otherfileids" : [".sbsar"]
     },
 
     "mat3" : {

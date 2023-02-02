@@ -5,26 +5,45 @@ function downloadmaterial(){
 
     //checkbox variables
     let checkboxestex = document.getElementById("info-checkbox-textures").querySelectorAll('.info-checkbox');
-    let checkedboxes = [];
+    let checkboxesoth = document.getElementById("info-checkbox-other").querySelectorAll('.info-checkbox');
+    let checkedboxestex = [];
+    let checkedboxesoth = [];
 
     // find out which checkboxes are checked and put them in a variable
     for (let i = 0; i < checkboxestex.length; i++) {
         if (checkboxestex[i].checked) {
-          checkedboxes.push(checkboxestex[i].id);
+            checkedboxestex.push(checkboxestex[i].id);
+        }
+    }
+    for (let i = 0; i < checkboxesoth.length; i++) {
+        if (checkboxesoth[i].checked) {
+             checkedboxesoth.push(checkboxesoth[i].id);
+        }
+    }
+    
+
+    // create zip arcive
+    let imageFiles = [];
+    let otherFiles = [];
+    var zip = new JSZip();
+    for (let i = 0; i < checkedboxestex.length; i++) {
+        imageFiles.push(fetch("Content/"+page.replace(".html", "")+"/"+openassetid+"/"+resspan.innerText+"_"+formatspan.innerText+"/"+openassetid+"_"+resspan.innerText+"_"+checkedboxestex[i]+"."+formatspan.innerText).then(function(response) { return response.blob(); }));
+    }
+    if(checkedboxesoth.length > 0){
+        for (let i = 0; i < checkedboxesoth.length; i++) {
+            otherFiles.push(fetch("Content/"+page.replace(".html", "")+"/"+openassetid+"/"+openassetid+checkedboxesoth[i]).then(function(response) { return response.blob(); }));
         }
     }
 
-    // create zip arcive
-    var zip = new JSZip();
-    let promises = [];
-    for (var i = 0; i < checkedboxes.length; i++) {
-        promises.push(fetch("Content/"+page.replace(".html", "")+"/"+openassetid+"/"+resspan.innerText+"_"+formatspan.innerText+"/"+openassetid+"_"+resspan.innerText+"_"+checkedboxes[i]+"."+formatspan.innerText).then(function(response) { return response.blob(); }));
-    }
-
-    Promise.all(promises)
+    Promise.all(imageFiles.concat(otherFiles))
     .then(function(files) {
-        for (let h = 0; h < files.length; h++) {
-            zip.file(openassetid+"_"+resspan.innerText+"_"+checkedboxes[h]+"."+formatspan.innerText.toLowerCase(), files[h], { binary: true });
+        for (let h = 0; h < imageFiles.length; h++) {
+            zip.file(openassetid+"_"+resspan.innerText+"_"+checkedboxestex[h]+"."+formatspan.innerText.toLowerCase(), imageFiles[h], { binary: true });
+        }
+        if(checkedboxesoth.length > 0){
+            for (let h = 0; h < otherFiles.length; h++) {
+                zip.file(openassetid+checkboxesoth[h].id, otherFiles[h], { binary: true });
+            }
         }
         return zip.generateAsync({ type: "blob" });
     })

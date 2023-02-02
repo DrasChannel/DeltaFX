@@ -1,4 +1,0 @@
-192p - (jpeg) (70 quality) (chroma quartered subsampling)
-1360p - (jpeg) (72 quality) (horizontal chroma halved subsampling)
-3072p - (jpeg) (74 quality) (horizontal chroma halved subsampling)
-thumbnail 640p - (webp)
