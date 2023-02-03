@@ -6,6 +6,9 @@ var openassetid = 0
 // code for asset cards
 
 function showassetcard(id3) {
+    // sets page window location
+    page = "materials";
+
     //sets openassetid to the id that you click on
     openassetid = id3
 
@@ -117,7 +120,7 @@ function showassetcard(id3) {
         <div class="info-checkbox-line">
             <input type="checkbox" class="info-checkbox" id="`+assetinfo[id3].texturemapids[i]+`" checked="">
             <span class="info-checkmark">
-                <img class="check-svg" src="Assets/svg/check.svg">
+                <img class="check-svg" src="assets/svg/check.svg">
             </span>
             <span class="info-map-name">`+assetinfo[id3].texturemaps[i]+`</span>
         </div>
@@ -132,7 +135,7 @@ function showassetcard(id3) {
         <div class="info-checkbox-line">
             <input type="checkbox" class="info-checkbox" id="`+assetinfo[id3].otherfileids[i]+`" checked="">
             <span class="info-checkmark">
-                <img class="check-svg" src="Assets/svg/check.svg">
+                <img class="check-svg" src="assets/svg/check.svg">
             </span>
             <span class="info-map-name">`+assetinfo[id3].otherfiles[i]+`</span>
         </div>
@@ -160,16 +163,16 @@ function showassetcard(id3) {
 
 
     document.getElementById("image1").setAttribute("class", "image");
-    document.getElementById('image1').style.backgroundImage="url(Assets/"+id3+"/"+id3+"_image1_192p.jpeg)";
+    document.getElementById('image1').style.backgroundImage="url(assets/materials/"+id3+"/"+id3+"_image1_192p.jpeg)";
 
     document.getElementById("image2").setAttribute("class", "image");
-    document.getElementById('image2').style.backgroundImage="url(Assets/"+id3+"/"+id3+"_image2_192p.jpeg)";
+    document.getElementById('image2').style.backgroundImage="url(assets/materials/"+id3+"/"+id3+"_image2_192p.jpeg)";
 
     document.getElementById("image3").setAttribute("class", "image");
-    document.getElementById('image3').style.backgroundImage="url(Assets/"+id3+"/"+id3+"_image3_192p.jpeg)";
+    document.getElementById('image3').style.backgroundImage="url(assets/materials/"+id3+"/"+id3+"_image3_192p.jpeg)";
 
     document.getElementById("image2").setAttribute("class", "image selected");
-    document.getElementById("viewingimage").setAttribute("src", "Assets/"+id3+"/"+id3+"_image2_1360p.jpeg")
+    document.getElementById("viewingimage").setAttribute("src", "assets/materials/"+id3+"/"+id3+"_image2_1360p.jpeg")
     document.getElementById("modalbg").setAttribute("class", "active");
     document.getElementById("html").style.overflow = "hidden";
 }
@@ -248,5 +251,5 @@ function selectimage(id2){
     document.getElementById("image2").setAttribute("class", "image");
     document.getElementById("image3").setAttribute("class", "image");
     document.getElementById(id2).setAttribute("class", "image selected");
-    document.getElementById("viewingimage").setAttribute("src", "Assets/"+openassetid+"/"+openassetid+"_"+id2+"_1360p.jpeg")
+    document.getElementById("viewingimage").setAttribute("src", "assets/materials/"+openassetid+"/"+openassetid+"_"+id2+"_1360p.jpeg")
 }

@@ -1,5 +1,5 @@
 var assetinfo;
-fetch ("./materials.json")
+fetch ("./json/materials.json")
     .then(response => response.json())
     .then(asstinf => assetinfo = asstinf)
     .then(data => {

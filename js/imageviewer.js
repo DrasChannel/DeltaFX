@@ -12,7 +12,7 @@ function openfullscreenview() {
     <div class="fullscreenclosebuttoncont">
         <div class="fullscreenbuttonbg ivb-big">
             <div class="fullscreenclosebutton" onclick="closefullscreenview()"></div>
-            <a style="display: contents;" download="`+openassetid+"/"+openassetid+"_"+imageid+`_3072p.jpeg" href="/Assets/`+openassetid+"/"+openassetid+"_"+imageid+`_3072p.jpeg"><div class="fullscreendownloadbutton"></div></a>
+            <a style="display: contents;" data-no-swup href="/assets/`+page+`/`+openassetid+"/"+openassetid+"_"+imageid+`_3072p.jpeg" download><div class="fullscreendownloadbutton"></div></a>
         </div>
         <div class="fullscreenimginfo">
             <span>Scroll to zoom</span>
@@ -22,7 +22,7 @@ function openfullscreenview() {
         </div
     </div>
     `
-    document.getElementById("fullscreenimage").style.backgroundImage = ("url(/Assets/"+openassetid+"/"+openassetid+"_"+imageid+"_3072p.jpeg)");
+    document.getElementById("fullscreenimage").style.backgroundImage = ("url(/assets/"+page+"/"+openassetid+"/"+openassetid+"_"+imageid+"_3072p.jpeg)");
     document.getElementById("fullscreencontainer").classList.toggle("active")
 
     // basic image viewer variables
@@ -97,7 +97,6 @@ function openfullscreenview() {
 }
 
 function previewmaps() {
-    page = window.location.pathname.split("/").pop();
     // activate the image viewer
     let = imageid = document.querySelector('.image.selected').id
     document.getElementById("fullscreencontainer").innerHTML = `
@@ -110,7 +109,7 @@ function previewmaps() {
     <div class="fullscreenclosebuttoncont">
         <div class="fullscreenbuttonbg ivb-big">
             <div class="fullscreenclosebutton" onclick="closefullscreenview()"></div>
-            <a style="display: contents;" download="`+openassetid+"/"+openassetid+"_"+imageid+`_3072p.jpeg" href="/Assets/`+openassetid+"/"+openassetid+"_"+imageid+`_3072p.jpeg"><div class="fullscreendownloadbutton"></div></a>
+            <a style="display: contents;" id="map-img-link" data-no-swup href="/content/`+page.replace(".html", "")+"/"+openassetid+"/4K_png/"+openassetid+"_4K_"+assetinfo[openassetid].texturemapids[0]+`.png" download><div class="fullscreendownloadbutton"></div></a>
         </div>
         <div class="fullscreenimginfo">
             <span>Scroll to zoom</span>
@@ -130,12 +129,12 @@ function previewmaps() {
         imgs.setAttribute("class", "image")
         imgs.setAttribute("id", "map"+i)
         imgs.setAttribute("onclick", "selectmap(this.id)")
-        imgs.style.backgroundImage = "url(/Content/"+page.replace(".html", "")+"/"+openassetid+"/192p/"+assetinfo[openassetid].texturemapids[i-1]+".jpg)"
+        imgs.style.backgroundImage = "url(/content/"+page.replace(".html", "")+"/"+openassetid+"/192p/"+assetinfo[openassetid].texturemapids[i-1]+".jpg)"
         imagessContainer.appendChild(imgs);
     }
     document.getElementById("map1").setAttribute("class", "image selected")
 
-    document.getElementById("fullscreenimage").style.backgroundImage = ("url(/Content/"+page.replace(".html", "")+"/"+openassetid+"/4K_png/"+openassetid+"_4K_"+assetinfo[openassetid].texturemapids[0]+".png)");
+    document.getElementById("fullscreenimage").style.backgroundImage = ("url(/content/"+page.replace(".html", "")+"/"+openassetid+"/4K_png/"+openassetid+"_4K_"+assetinfo[openassetid].texturemapids[0]+".png)");
     document.getElementById("fullscreencontainer").classList.toggle("active")
 
     // basic image viewer variables
@@ -215,8 +214,8 @@ function selectmap(id){
     }
     document.getElementById(id).setAttribute("class", "image selected")
     let newid = id.replace("map", "")
-    document.getElementById("fullscreenimage").style.backgroundImage = ("url(/Content/"+page.replace(".html", "")+"/"+openassetid+"/4K_png/"+openassetid+"_4K_"+assetinfo[openassetid].texturemapids[Number(newid)-1]+".png)");
-
+    document.getElementById("fullscreenimage").style.backgroundImage = ("url(/content/"+page.replace(".html", "")+"/"+openassetid+"/4K_png/"+openassetid+"_4K_"+assetinfo[openassetid].texturemapids[Number(newid)-1]+".png)");
+    document.getElementById("map-img-link").setAttribute("href", "/content/"+page.replace(".html", "")+"/"+openassetid+"/4K_png/"+openassetid+"_4K_"+assetinfo[openassetid].texturemapids[Number(newid)-1]+".png");
 }
 
 function closefullscreenview(){

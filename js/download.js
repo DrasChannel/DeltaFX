@@ -27,11 +27,11 @@ function downloadmaterial(){
     let otherFiles = [];
     var zip = new JSZip();
     for (let i = 0; i < checkedboxestex.length; i++) {
-        imageFiles.push(fetch("Content/"+page.replace(".html", "")+"/"+openassetid+"/"+resspan.innerText+"_"+formatspan.innerText+"/"+openassetid+"_"+resspan.innerText+"_"+checkedboxestex[i]+"."+formatspan.innerText).then(function(response) { return response.blob(); }));
+        imageFiles.push(fetch("content/"+page.replace(".html", "")+"/"+openassetid+"/"+resspan.innerText+"_"+formatspan.innerText+"/"+openassetid+"_"+resspan.innerText+"_"+checkedboxestex[i]+"."+formatspan.innerText).then(function(response) { return response.blob(); }));
     }
     if(checkedboxesoth.length > 0){
         for (let i = 0; i < checkedboxesoth.length; i++) {
-            otherFiles.push(fetch("Content/"+page.replace(".html", "")+"/"+openassetid+"/"+openassetid+checkedboxesoth[i]).then(function(response) { return response.blob(); }));
+            otherFiles.push(fetch("content/"+page.replace(".html", "")+"/"+openassetid+"/"+openassetid+checkedboxesoth[i]).then(function(response) { return response.blob(); }));
         }
     }
 
@@ -55,4 +55,15 @@ function downloadmaterial(){
         link.click();
         document.getElementById("downloadmat").classList.remove('disabled')
     });
+}
+
+function downloadimage(){
+    var fullscreenimage = document.getElementById("fullscreenimage");
+    let style = window.getComputedStyle(fullscreenimage);
+    let backgroundImage = style.getPropertyValue("background-image");
+    let url = backgroundImage.slice(4, -1).replace(/"/g, "");
+    console.log(url);
+    link.href = url;
+    link.download = openassetid+".zip";
+    link.click();
 }
