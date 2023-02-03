@@ -4,7 +4,7 @@ function showprivacypolicymodal(){
     <div class="modalbgclose" onclick="closemodal()"></div>
     <div class="modal" id="modal">
         <div class="modalheader">
-            <div class="modaltitle">Privacy policy</div>
+            <div class="modaltitle">Privacy</div>
             <div class="closebutton" onclick="closemodal()"></div>
         </div>
         <div class="modalbody">

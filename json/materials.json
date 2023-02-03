@@ -1,19 +1,4 @@
 {
-    "plainrust1" : {
-        "assetname" : "Plain Rust",
-        "assettype" : "PBR Material",
-        "methodofcreation" : "Procedural (SBS)",
-        "releasedate" : "04/08/2022",
-        "dimensions" : "",
-        "tags" : "Plain Rust Rusted Metal Steel Old Rusty",
-        "resolutions" : ["8K", "4K", "2K"],
-        "fileformats" : ["PNG", "JPG", "TIF"],
-        "texturemaps" : ["Base Color", "Normal", "Roughness", "Height", "Ambient Occlusion"],
-        "texturemapids" : ["basecolor", "normalgl", "roughness", "height", "ao"],
-        "otherfiles" : [],
-        "otherfileids" : []
-    },
-
     "concretepanels1" : {
         "assetname" : "Concrete Panels",
         "assettype" : "PBR Material",
@@ -21,6 +6,21 @@
         "releasedate" : "26/11/2022",
         "dimensions" : "",
         "tags" : "Concrete Panels Panel Slab Slabs Tile Tiles Pattern",
+        "resolutions" : ["8K", "4K", "2K"],
+        "fileformats" : ["PNG", "JPG", "TIF"],
+        "texturemaps" : ["Base Color", "Normal", "Roughness", "Height", "Ambient Occlusion"],
+        "texturemapids" : ["basecolor", "normalgl", "roughness", "height", "ao"],
+        "otherfiles" : ["Sbsar"],
+        "otherfileids" : [".sbsar"]
+    },
+    
+    "plainrust1" : {
+        "assetname" : "Plain Rust",
+        "assettype" : "PBR Material",
+        "methodofcreation" : "Procedural (SBS)",
+        "releasedate" : "04/08/2022",
+        "dimensions" : "",
+        "tags" : "Plain Rust Rusted Metal Steel Old Rusty",
         "resolutions" : ["8K", "4K", "2K"],
         "fileformats" : ["PNG", "JPG", "TIF"],
         "texturemaps" : ["Base Color", "Normal", "Roughness", "Height", "Ambient Occlusion"],

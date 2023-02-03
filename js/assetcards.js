@@ -75,7 +75,7 @@ function showmatassetcard(id3) {
                     <div class="infocontainer info-downloadsize">
                         <div class="info-download-container">
                             <span class="info-title">Download Size</span>
-                            <span class="info-text">work in progress</span>
+                            <span class="info-text" id="info-file-size">work in progress</span>
                         </div>
                         <a class="source-file-link"></a>
                     </div>
@@ -118,7 +118,7 @@ function showmatassetcard(id3) {
     for (let i = 0; i < checkfilestex.length; i++) {
         checkfilestexcontainer.innerHTML += `
         <div class="info-checkbox-line">
-            <input type="checkbox" class="info-checkbox" id="`+assetinfo[id3].texturemapids[i]+`" checked="">
+            <input type="checkbox" onChange="calculatefilesize()" class="info-checkbox" id="`+assetinfo[id3].texturemapids[i]+`" checked="">
             <span class="info-checkmark">
                 <img class="check-svg" src="assets/svg/check.svg">
             </span>
@@ -133,7 +133,7 @@ function showmatassetcard(id3) {
     for (let i = 0; i < checkfilesoth.length; i++) {
         checkfilesothcontainer.innerHTML += `
         <div class="info-checkbox-line">
-            <input type="checkbox" class="info-checkbox" id="`+assetinfo[id3].otherfileids[i]+`" checked="">
+            <input type="checkbox" onChange="calculatefilesize()" class="info-checkbox" id="`+assetinfo[id3].otherfileids[i]+`" checked="">
             <span class="info-checkmark">
                 <img class="check-svg" src="assets/svg/check.svg">
             </span>
@@ -142,6 +142,7 @@ function showmatassetcard(id3) {
         `
     }
 
+    // create select options for all resolutions and file formats
     for (let i = 0; i < assetinfo[id3].resolutions.length; i++) {
         if(i==0){
             document.getElementById("resselect").innerHTML += `<div class="dropdown-option selected" id="resoption">`+assetinfo[id3].resolutions[i]+`</div>`
@@ -161,20 +162,22 @@ function showmatassetcard(id3) {
         }
     }
 
-
+    // set the thumbnails to image selector
     document.getElementById("image1").setAttribute("class", "image");
     document.getElementById('image1').style.backgroundImage="url(assets/materials/"+id3+"/"+id3+"_image1_192p.jpeg)";
-
     document.getElementById("image2").setAttribute("class", "image");
     document.getElementById('image2').style.backgroundImage="url(assets/materials/"+id3+"/"+id3+"_image2_192p.jpeg)";
-
     document.getElementById("image3").setAttribute("class", "image");
     document.getElementById('image3').style.backgroundImage="url(assets/materials/"+id3+"/"+id3+"_image3_192p.jpeg)";
 
+    // set the default selected image
     document.getElementById("image2").setAttribute("class", "image selected");
     document.getElementById("viewingimage").setAttribute("src", "assets/materials/"+id3+"/"+id3+"_image2_1360p.jpeg")
     document.getElementById("modalbg").setAttribute("class", "active");
     document.getElementById("html").style.overflow = "hidden";
+
+    // calculate size of all files after loading asset card
+    calculatefilesize()
 }
 
 function enableselects(){
@@ -205,6 +208,23 @@ function enableselects(){
             dropdownselect.classList.toggle("active");
         });
     });
+
+    // CODE FOR CHANGING DOWNLOAD SIZE WHEN SWITHCING RESOLUTION ----- REWORK
+    const targetNode = document.getElementById("resspan");
+    const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+        if (mutation.type === 'childList') {
+        console.log("Value changed to:", targetNode.textContent);
+        calculatefilesize()
+        }
+    });
+    });
+    const config = { childList: true };
+    observer.observe(targetNode, config);
+
+    setTimeout(function() {
+        targetNode.textContent = "8K";
+    }, 1000);
 
 
 
