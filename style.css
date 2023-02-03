@@ -509,7 +509,7 @@ body{
 .maincontainer{
     display: flex;
     flex-direction: row;
-    gap: 1rem;
+    gap: 5px;
     justify-content: center;
     flex-wrap: wrap;
     margin-left: 300px;
@@ -692,19 +692,19 @@ body{
 
 
 
-/*   Page - Materials   */
+/*   Asset list thumbanail styles   */
 
-.mat{
+.asset-list-thumb{
     display: flex;
     min-width: 200px;
     position: relative;
     border-radius: 10px;
     max-height: 300px;
 }
-.mat:hover{
+.asset-list-thumb:hover{
     background-color: #262626;
 }
-.mat:active{
+.asset-list-thumb:active{
     background-color: #2B2B2B;
 }
 .img{
@@ -712,7 +712,7 @@ body{
     width: 300px;
     padding: .75rem;
 }
-.mattitlecontainer{
+.thumbtitlecontainer{
     display: flex;
     position: absolute;
     height: 100%;
@@ -729,11 +729,11 @@ body{
     -ms-user-select: none;
     user-select: none;
 }
-.mattitlecontainer:hover{
+.thumbtitlecontainer:hover{
     opacity: 1 !important;
     transition-duration: 150ms;
 }
-.mattitle{
+.thumbtitle{
     color: #f0f0f0;
     font-family: com;
     font-weight: 400;
@@ -1281,46 +1281,6 @@ body{
     display: none;
 }
 
-
-
-/*   Elements - Models   */
-
-.mod{
-    display: flex;
-    min-width: 200px;
-    position: relative;
-    border-radius: 10px;
-    transition-duration: 150ms;
-}
-.mod:hover{
-    background-color: #262626;
-    transition-duration: 150ms;
-}
-.mod:active{
-    background-color: #2b2b2b;
-    transition-duration: 150ms;
-}
-.modtitlecontainer{
-    display: flex;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition-duration: 150ms;
-}
-.modtitlecontainer:hover{
-    opacity: 1 !important;
-    transition-duration: 150ms;
-}
-.modtitle{
-    color: #f0f0f0;
-    font-family: com;
-    font-weight: 400;
-    margin-top: 258px;
-    font-size: 14px;
-}
 
 
 /*   Elements - About   */

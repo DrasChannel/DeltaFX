@@ -5,7 +5,7 @@ var openassetid = 0
 
 // code for asset cards
 
-function showassetcard(id3) {
+function showmatassetcard(id3) {
     // sets page window location
     page = "materials";
 
