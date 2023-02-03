@@ -178,7 +178,7 @@ function showmatassetcard(id3) {
 }
 
 function enableselects(){
-    document.getElementById(openassetid).setAttribute("onclick", "showassetcard(this.id);");
+    document.getElementById(openassetid).setAttribute("onclick", "showmatassetcard(this.id);");
     
     var dropdownselect = document.getElementById("resselected");
     var dropdownoptions = document.getElementById("resselect");
@@ -238,7 +238,7 @@ function enableselects(){
 
 
 function closeassetcard() {
-    document.getElementById(openassetid).setAttribute("onclick", "showassetcard(this.id);enableselects();");
+    document.getElementById(openassetid).setAttribute("onclick", "showmatassetcard(this.id);enableselects();");
     openassetid = 0
     document.getElementById("modalbg").setAttribute("class", "");
     document.getElementById("html").style.overflow = "overlay";

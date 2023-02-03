@@ -114,7 +114,7 @@ function previewmaps() {
         <div class="fullscreenimginfo">
             <span>Scroll to zoom</span>
             <span>click & drag to pan</span>
-            <span class="fullscreenimginfo-imginfo" style="margin-top: 12px;">`+openassetid+"_"+imageid+`</span>
+            <span class="fullscreenimginfo-imginfo" id="fullsc-imginfo-name" style="margin-top: 12px;">`+openassetid+"_"+assetinfo[openassetid].texturemapids[0]+`</span>
             <span class="fullscreenimginfo-imginfo">4096x4096px</span>
         </div
     </div>
@@ -216,6 +216,7 @@ function selectmap(id){
     let newid = id.replace("map", "")
     document.getElementById("fullscreenimage").style.backgroundImage = ("url(/content/"+page.replace(".html", "")+"/"+openassetid+"/4K_png/"+openassetid+"_4K_"+assetinfo[openassetid].texturemapids[Number(newid)-1]+".png)");
     document.getElementById("map-img-link").setAttribute("href", "/content/"+page.replace(".html", "")+"/"+openassetid+"/4K_png/"+openassetid+"_4K_"+assetinfo[openassetid].texturemapids[Number(newid)-1]+".png");
+    document.getElementById("fullsc-imginfo-name").innerHTML = openassetid+"_"+assetinfo[openassetid].texturemapids[Number(newid)-1]
 }
 
 function closefullscreenview(){

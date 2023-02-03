@@ -710,7 +710,7 @@ body{
 .img{
     height: 300px;
     width: 300px;
-    padding: .75rem;
+    padding: 8px;
 }
 .thumbtitlecontainer{
     display: flex;
@@ -737,7 +737,7 @@ body{
     color: #f0f0f0;
     font-family: com;
     font-weight: 400;
-    margin-top: 258px;
+    margin-top: 260px;
     font-size: 14px;
 
     -webkit-touch-callout: none;
