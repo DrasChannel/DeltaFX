@@ -1,18 +1,12 @@
-const fs = require('fs');
-const archiver = require('archiver');
-
-function downloadmaterial(){
-    // find out if i'm downloading materials, models or other assets
+async function downloadmaterial(){
     document.getElementById("downloadmat").classList.add('disabled')
     let page = window.location.pathname.split("/").pop();
-
-    //checkbox variables
+    
     let checkboxestex = document.getElementById("info-checkbox-textures").querySelectorAll('.info-checkbox');
     let checkboxesoth = document.getElementById("info-checkbox-other").querySelectorAll('.info-checkbox');
     let checkedboxestex = [];
     let checkedboxesoth = [];
 
-    // find out which checkboxes are checked and put them in a variable
     for (let i = 0; i < checkboxestex.length; i++) {
         if (checkboxestex[i].checked) {
             checkedboxestex.push(checkboxestex[i].id);
@@ -24,39 +18,35 @@ function downloadmaterial(){
         }
     }
     
-
-    // create zip arcive
-    let imageFiles = [];
-    let otherFiles = [];
-    var zip = new JSZip();
+    let selectedFiles = [];
     for (let i = 0; i < checkedboxestex.length; i++) {
-        imageFiles.push(fetch("content/"+page.replace(".html", "")+"/"+openassetid+"/"+resspan.innerText+"_"+formatspan.innerText+"/"+openassetid+"_"+resspan.innerText+"_"+checkedboxestex[i]+"."+formatspan.innerText).then(function(response) { return response.blob(); }));
+        selectedFiles.push("content/"+page.replace(".html", "")+"/"+openassetid+"/"+resspan.innerText+"_"+formatspan.innerText+"/"+openassetid+"_"+resspan.innerText+"_"+checkedboxestex[i]+"."+formatspan.innerText.toLowerCase());
     }
     if(checkedboxesoth.length > 0){
         for (let i = 0; i < checkedboxesoth.length; i++) {
-            otherFiles.push(fetch("content/"+page.replace(".html", "")+"/"+openassetid+"/"+openassetid+checkedboxesoth[i]).then(function(response) { return response.blob(); }));
+            selectedFiles.push("content/"+page.replace(".html", "")+"/"+openassetid+"/"+openassetid+checkedboxesoth[i]);
         }
     }
-
-    Promise.all(imageFiles.concat(otherFiles))
-    .then(function(files) {
-        for (let h = 0; h < imageFiles.length; h++) {
-            zip.file(openassetid+"_"+resspan.innerText+"_"+checkedboxestex[h]+"."+formatspan.innerText.toLowerCase(), imageFiles[h], { binary: true });
-        }
-        if(checkedboxesoth.length > 0){
-            for (let h = 0; h < otherFiles.length; h++) {
-                zip.file(openassetid+checkboxesoth[h].id, otherFiles[h], { binary: true });
-            }
-        }
-        return zip.generateAsync({ type: "blob" });
+    
+    let response = await fetch("/js/generate-zip.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({files: selectedFiles})
     })
-    .then(function(content) {
-        // trigger the download
+    .then(response => {
+        return response.blob();
+    })
+    .then(blob => {
         let link = document.createElement("a");
-        link.href = URL.createObjectURL(content);
-        link.download = openassetid+".zip";
+        link.href = URL.createObjectURL(blob);
+        link.download = openassetid + ".zip";
         link.click();
-        document.getElementById("downloadmat").classList.remove('disabled')
+        document.getElementById("downloadmat").classList.remove('disabled');
+    })
+    .catch(error => {
+        console.error("An error occurred while generating the zip file:", error);
     });
 }
 
@@ -129,5 +119,5 @@ function calculateotherfilesize(totalbytes) {
 }
 // calculate the final size and set it to the "info-file-size" element
 function updatesize(bytesum){
-    document.getElementById("info-file-size").innerHTML = (bytesum / Math.pow(10, 6)).toFixed(2)+" mb"
+    document.getElementById("info-file-size").innerHTML = (bytesum * 0.00000095367432).toFixed(2)+" mb"
 }

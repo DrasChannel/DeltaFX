@@ -473,8 +473,8 @@ body{
 }
 .iconmat{
     position: relative;
-    height: 48px;
-    width: 48px;
+    height: 47px;
+    width: 47px;
     background-image: url("Assets/svg/MaterialIcon.svg");
     background-size: 100%;
 }
@@ -484,8 +484,8 @@ body{
 }
 .iconmodel{
     position: relative;
-    height: 48px;
-    width: 48px;
+    height: 47px;
+    width: 47px;
     background-image: url("Assets/svg/ModelIcon.svg");
     background-size: 100%;
 }
@@ -495,8 +495,8 @@ body{
 }
 .iconinfo{
     position: relative;
-    height: 48px;
-    width: 48px;
+    height: 47px;
+    width: 47px;
     background-image: url("Assets/svg/infoIcon.svg");
     background-size: 95%;
     background-position: center center;
@@ -700,16 +700,23 @@ body{
 
     transition: all 150ms;
     
+    
+    width: 600px;
+    pointer-events: auto;
+}
+.search-input{
+    width: -webkit-fill-available;
+    width: -moz-available;
     font-size: 16px;
     color: #f0f0f0;
     outline: none;
-    width: 600px;
-    pointer-events: auto;
+    background: transparent;
+    border: 0;
 }
 .searchbar:hover{
     border: solid 2px #303030;
 }
-.searchbar:focus{
+.search-input:focus .searchbar{
     border: solid 2px #1aa8ff;
 }
 .search-options{

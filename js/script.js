@@ -47,7 +47,9 @@ function addsearchbar() {
         if(window.location.href.indexOf("materials") !== -1){
             document.getElementById("searchbar-container").style.width = "948px"
             document.getElementById("searchbar-container").innerHTML = `
-            <input type="text" class="searchbar" id="searchbar-materials" placeholder="Search materials">
+            <div class="searchbar" id="searchbar-materials">
+                <input type="text" class="search-input" placeholder="Search materials" onfocus="focussearchbar()">
+            </div>
             <div class="search-options">
                 <span class="search-options-title">Sort by</span>
                 <div class="search-option-releasedate">Latest</div>
@@ -57,7 +59,9 @@ function addsearchbar() {
         } else if(window.location.href.indexOf("models") !== -1) {
             document.getElementById("searchbar-container").style.width = "948px"
             document.getElementById("searchbar-container").innerHTML = `
-            <input type="text" class="searchbar" id="searchbar-models" placeholder="Search models">
+            <div class="searchbar" id="searchbar-models">
+                <input type="text" class="search-input" placeholder="Search models" onfocus="focussearchbar()">
+            </div>
             <div class="search-options">
                 <span class="search-options-title">Sort by</span>
                 <div class="search-option-releasedate">Latest</div>
@@ -70,5 +74,11 @@ function addsearchbar() {
             document.getElementById("searchbar-container").style.width = "0px"
         }
     }, 80);
-    
+}
+
+function focussearchbar() {
+    document.querySelector(".searchbar").style.border = "solid 2px #1aa8ff"
+    document.querySelector(".search-input").addEventListener('blur', (event) => {
+        document.querySelector(".searchbar").style.border = "solid 2px #2b2b2b"
+    });
 }
