@@ -209,21 +209,20 @@ function enableselects(){
         });
     });
 
-    // CODE FOR CHANGING DOWNLOAD SIZE WHEN SWITHCING RESOLUTION ----- REWORK
-    const targetNode = document.getElementById("resspan");
-    const observer = new MutationObserver(function(mutations) {
+    // Code for updating download size when changing resolution
+    let target1 = document.getElementById("resspan");
+    let observer1 = new MutationObserver(function(mutations) {
     mutations.forEach(function(mutation) {
         if (mutation.type === 'childList') {
-        console.log("Value changed to:", targetNode.textContent);
         calculatefilesize()
         }
     });
     });
-    const config = { childList: true };
-    observer.observe(targetNode, config);
+    let config1 = { childList: true };
+    observer1.observe(target1, config1);
 
     setTimeout(function() {
-        targetNode.textContent = "8K";
+        target1.textContent = "8K";
     }, 1000);
 
 
@@ -253,6 +252,22 @@ function enableselects(){
             dropdownselect1.classList.toggle("active");
         });
     });
+
+    // Code for updating download size when changing resolution
+    let target2 = document.getElementById("formatspan");
+    let observer2 = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+        if (mutation.type === 'childList') {
+        calculatefilesize()
+        }
+    });
+    });
+    let config2 = { childList: true };
+    observer2.observe(target2, config1);
+
+    setTimeout(function() {
+        target2.textContent = "PNG";
+    }, 1000);
 }
 
 
@@ -263,7 +278,7 @@ function closeassetcard() {
     document.getElementById("modalbg").setAttribute("class", "");
     document.getElementById("html").style.overflow = "overlay";
     document.getElementById("modalbg").innerHTML = ""
-    history.replaceState({}, "", "/Materials.html");
+    history.replaceState({}, "", "/materials.html");
 }
 
 function selectimage(id2){

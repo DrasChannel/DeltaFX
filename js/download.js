@@ -1,5 +1,8 @@
+const fs = require('fs');
+const archiver = require('archiver');
+
 function downloadmaterial(){
-    // find out if i'm downloading materials or other assets
+    // find out if i'm downloading materials, models or other assets
     document.getElementById("downloadmat").classList.add('disabled')
     let page = window.location.pathname.split("/").pop();
 
@@ -57,19 +60,8 @@ function downloadmaterial(){
     });
 }
 
-function downloadimage(){
-    var fullscreenimage = document.getElementById("fullscreenimage");
-    let style = window.getComputedStyle(fullscreenimage);
-    let backgroundImage = style.getPropertyValue("background-image");
-    let url = backgroundImage.slice(4, -1).replace(/"/g, "");
-    console.log(url);
-    link.href = url;
-    link.download = openassetid+".zip";
-    link.click();
-}
 
-
-
+//function for calculating file size for images
 function calculatefilesize(){
     let page = window.location.pathname.split("/").pop();
     let checkboxestex = document.getElementById("info-checkbox-textures").querySelectorAll('.info-checkbox');
@@ -82,9 +74,8 @@ function calculatefilesize(){
             checkedboxestex.push(checkboxestex[i].id);
         }
     }
-    
-    console.log(checkedboxestex)
 
+    // make http request for the file size and send the data to the next function
     let requests = 0;
     for(let i = 0; i < checkedboxestex.length; i++){
         let xhr = new XMLHttpRequest();
@@ -101,6 +92,7 @@ function calculatefilesize(){
         xhr.send();
     }
 }
+// calculate file size for other files
 function calculateotherfilesize(totalbytes) {
     let page = window.location.pathname.split("/").pop();
     let checkboxesoth = document.getElementById("info-checkbox-other").querySelectorAll('.info-checkbox');
@@ -112,8 +104,6 @@ function calculateotherfilesize(totalbytes) {
              checkedboxesoth.push(checkboxesoth[i].id);
         }
     }
-
-    console.log(checkedboxesoth)
 
     let requests = 0;
     if(checkedboxesoth.length > 0){
@@ -137,7 +127,7 @@ function calculateotherfilesize(totalbytes) {
     }
     
 }
+// calculate the final size and set it to the "info-file-size" element
 function updatesize(bytesum){
     document.getElementById("info-file-size").innerHTML = (bytesum / Math.pow(10, 6)).toFixed(2)+" mb"
-    console.log((bytesum / Math.pow(10, 6)).toFixed(2))
 }

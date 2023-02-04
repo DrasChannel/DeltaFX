@@ -3,12 +3,15 @@ const swup = new Swup()
 // run once when page loads
 if (document.readyState === 'complete') {
     scrollfade();
+    addsearchbar();
 } else {
     document.addEventListener('DOMContentLoaded', () => scrollfade());
+    document.addEventListener('DOMContentLoaded', () => addsearchbar());
 }
   
 // run after every additional navigation by swup
 swup.on('contentReplaced', scrollfade);
+swup.on('clickLink', addsearchbar);
 
 // Define the function that does scrolling and fading
 let scrlfdFunc = function scrlfd() {
@@ -36,4 +39,36 @@ function scrollfade(){
         document.getElementById("navbar").style.backdropFilter = "blur(40px)"
         window.removeEventListener("scroll", scrlfdFunc);
     }
+}
+
+// function to add searchbar
+function addsearchbar() {
+    setTimeout(function() {
+        if(window.location.href.indexOf("materials") !== -1){
+            document.getElementById("searchbar-container").style.width = "948px"
+            document.getElementById("searchbar-container").innerHTML = `
+            <input type="text" class="searchbar" id="searchbar-materials" placeholder="Search materials">
+            <div class="search-options">
+                <span class="search-options-title">Sort by</span>
+                <div class="search-option-releasedate">Latest</div>
+            </div>
+            `
+            document.getElementById("searchbar-container").style.opacity = "1"
+        } else if(window.location.href.indexOf("models") !== -1) {
+            document.getElementById("searchbar-container").style.width = "948px"
+            document.getElementById("searchbar-container").innerHTML = `
+            <input type="text" class="searchbar" id="searchbar-models" placeholder="Search models">
+            <div class="search-options">
+                <span class="search-options-title">Sort by</span>
+                <div class="search-option-releasedate">Latest</div>
+            </div>
+            `
+            document.getElementById("searchbar-container").style.opacity = "1"
+        } else {
+            document.getElementById("searchbar-container").innerHTML = ``
+            document.getElementById("searchbar-container").style.opacity = "0"
+            document.getElementById("searchbar-container").style.width = "0px"
+        }
+    }, 80);
+    
 }
