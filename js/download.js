@@ -1,4 +1,4 @@
-async function downloadmaterial(){
+function downloadmaterial(){
     document.getElementById("downloadmat").classList.add('disabled')
     let page = window.location.pathname.split("/").pop();
     
@@ -27,27 +27,8 @@ async function downloadmaterial(){
             selectedFiles.push("content/"+page.replace(".html", "")+"/"+openassetid+"/"+openassetid+checkedboxesoth[i]);
         }
     }
-    
-    let response = await fetch("/js/generate-zip.php", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({files: selectedFiles})
-    })
-    .then(response => {
-        return response.blob();
-    })
-    .then(blob => {
-        let link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.download = openassetid + ".zip";
-        link.click();
-        document.getElementById("downloadmat").classList.remove('disabled');
-    })
-    .catch(error => {
-        console.error("An error occurred while generating the zip file:", error);
-    });
+    console.log(selectedFiles)
+    document.getElementById("downloadmat").classList.remove('disabled')
 }
 
 
