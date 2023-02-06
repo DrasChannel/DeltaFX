@@ -821,11 +821,8 @@ body{
     margin-top: 4px;
     background-color: #262626;
 
-    -webkit-touch-callout: none;
     -webkit-user-select: none;
-    -khtml-user-select: none;
     -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
 }
 .button-tiny:hover{
@@ -890,6 +887,7 @@ body{
     width: 96px;
     height: 96px;
     background-size: 96px;
+    background-position: -2px;
     border-radius: 8px;
     transition: all 150ms;
     box-sizing: border-box;
@@ -900,23 +898,11 @@ body{
     transition-duration: 150ms;
     box-sizing: border-box;
 }
-#image1{
-    background-size: 96px;
-    background-position: -2px;
-}
-#image2{
-    background-size: 96px;
-    background-position: -2px;
-}
-#image3{
-    background-size: 96px;
-    background-position: -2px;
-}
 .image.selected{
     border: 2px solid #1aa8ff !important;
     transition: all 150ms;
 }
-.imageoptionscontainer{
+.image-select-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -926,7 +912,7 @@ body{
     transition: all 200ms;
     z-index: 2;
 }
-.imageoptionscontainer:hover{
+.image-select-container:hover{
     opacity: 1;
 }
 .fullscreen-controls-container {
@@ -972,7 +958,6 @@ body{
     background-image: url("Assets/svg/fullscreencolorful.svg");
 }
 .fullscreenpreviewmapsb{
-    text-align: center;
     line-height: 46px;
     background-color: #262626;
     color: #cccccc;
@@ -985,7 +970,6 @@ body{
     z-index: 3;
     font-weight: 400;
     font-size: 16px;
-
 }
 .fullscreenpreviewmapsb:hover{
     background-color: rgb(53, 53, 53);
@@ -993,17 +977,17 @@ body{
 .fullscreenpreviewmapsb:active{
     background-color: rgb(63, 63, 63);
 }
+
+
+/*   Fullscreen view   */
+
 .fullscreencontainer{
     display: flex;
     position: fixed;
     justify-content: center;
     align-items: center;
-    top: 0;
-    bottom: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
-    object-fit: fill;
     background-color: #1c1c1c;
     z-index: 7;
     opacity: 0;
@@ -1034,11 +1018,7 @@ body{
     background-size: 100vh;
     z-index: 2;
 }
-.fullscreenmap {
-    width: 100vh;
-    height: 100vh;
-    background-size: 100vh;
-    z-index: 2;
+.fullscreenimage.map {
     image-rendering: pixelated;
 }
 .fullscreenbgclose{
@@ -1150,7 +1130,7 @@ body{
     display: flex;
 
     width: 100%;
-    height: 53rem;
+    height: 848px;
 }
 
 
@@ -1163,11 +1143,8 @@ body{
     font-weight: 500;
     display: flex;
 
-    -webkit-touch-callout: none;
     -webkit-user-select: none;
-    -khtml-user-select: none;
     -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
 
     color: #f0f0f0;
@@ -1213,17 +1190,9 @@ body{
     opacity: 0;
     visibility: hidden;
     transition: all 150ms;
-    align-items: center;
-    justify-content: center;
 }
 #resselect{
     width: 53px;
-}
-#resolutiondropdown{
-    outline: none;
-}
-#formatdropdown{
-    outline: none;
 }
 #formatselect{
     margin-left: 10px;

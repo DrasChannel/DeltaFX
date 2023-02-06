@@ -20,7 +20,7 @@ function showmatassetcard(id3) {
     <div class="assetcard" id="assetcard">
         <div class="imageviewer" id="imageviewer">
             <img class="viewingimage" id="viewingimage" src="">
-            <div class="imageoptionscontainer">
+            <div class="image-select-container">
                 <div class="imageselector">
                     <div class="image" id="image1" onclick="selectimage(this.id)"></div>
                     <div class="image selected" id="image2" onclick="selectimage(this.id)"></div>

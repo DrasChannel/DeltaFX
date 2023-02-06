@@ -102,7 +102,7 @@ function previewmaps() {
     document.getElementById("fullscreencontainer").innerHTML = `
     <div class="fullscreenbgclose" onclick="closefullscreenview()"></div>
     <div class="fullscreenimagecontainer" id="fullscreenimagecontainer"onclick="closefullscreenview()">
-        <div class="fullscreenmap" id="fullscreenimage" ></div>
+        <div class="fullscreenimage map" id="fullscreenimage" ></div>
     </div>
     <div class="mapsselector" id="imgselectormaps">
     </div>
