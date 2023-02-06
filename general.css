@@ -1,0 +1,36 @@
+@charset "UTF-8";
+*,::after,::before{
+    box-sizing:border-box
+}
+a{
+    text-decoration: none;
+}
+body{
+    margin:0;
+    font-size: 16px;
+    font-weight:400;
+    line-height:1.5;
+    -webkit-text-size-adjust:100%;
+    -webkit-tap-highlight-color:transparent
+}
+html{
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: overlay;
+}
+@media (prefers-reduced-motion:no-preference){
+    :root{
+        scroll-behavior:smooth
+    }
+}
+[role=button],[type=button]:not(:disabled),[type=reset]:not(:disabled),[type=submit]:not(:disabled),button:not(:disabled),summary{
+    cursor:pointer
+}
+img,svg{
+    vertical-align:middle
+}
+button,input{
+    margin:0;
+    font-size:inherit;
+    line-height:inherit
+}
