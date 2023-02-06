@@ -27,10 +27,7 @@ function showmatassetcard(id3) {
                     <div class="image" id="image3" onclick="selectimage(this.id)"></div>
                 </div>
             </div>
-            <div class="fullscreencontrolscontainer">
-                <div class="imageindicatorcontainer">
-                    <div class="imageindicator"></div>
-                </div>
+            <div class="fullscreen-controls-container">
                 <div class="fullscreenbuttonscontainer">
                     <div class="fullscreenpreviewmapsb" onclick="previewmaps()">Preview maps</div>
                     <div class="fullscreenbuttonbg">
@@ -48,37 +45,34 @@ function showmatassetcard(id3) {
                 <div class="closebutton" onclick="closeassetcard()"></div>
             </div>
             <div class="assetcardinfo">
-                <div class="assetinfocontainer">
-                    
-                    <div class="info-oneline">
-                        <div class="infocontainer info-releasedate">
-                            <span class="info-title">Release date</span>
-                            <span class="info-text">`+assetinfo[id3].releasedate+`</span>
-                        </div>
-                        <div class="infocontainer info-method">
-                            <span class="info-title">Method of creation</span>
-                            <span class="info-text">`+assetinfo[id3].methodofcreation+`</span>
-                        </div>
+                <div class="info-oneline">
+                    <div class="infocontainer info-releasedate">
+                        <span class="info-title">Release date</span>
+                        <span class="info-text">`+assetinfo[id3].releasedate+`</span>
                     </div>
-                    <div class="infocontainer info-tags">
-                        <span class="info-text" id="tag-buttons"></span>
+                    <div class="infocontainer info-method">
+                        <span class="info-title">Method of creation</span>
+                        <span class="info-text">`+assetinfo[id3].methodofcreation+`</span>
                     </div>
-                    <div class="infocontainer">
-                        <span class="info-title">Contained assets</span>
-                        <div class="info-checkbox-container">
-                            <div class="info-checkbox-textures" id="info-checkbox-textures">
-                            </div>
-                            <div class="info-checkbox-other" id="info-checkbox-other">
-                            </div>
+                </div>
+                <div class="infocontainer info-tags">
+                    <span class="info-text" id="tag-buttons"></span>
+                </div>
+                <div class="infocontainer">
+                    <span class="info-title">Contained assets</span>
+                    <div class="info-checkbox-container">
+                        <div class="info-checkbox-textures" id="info-checkbox-textures">
+                        </div>
+                        <div class="info-checkbox-other" id="info-checkbox-other">
                         </div>
                     </div>
-                    <div class="infocontainer info-downloadsize">
-                        <div class="info-download-container">
-                            <span class="info-title">Download Size</span>
-                            <span class="info-text" id="info-file-size">work in progress</span>
-                        </div>
-                        <a class="source-file-link"></a>
+                </div>
+                <div class="infocontainer info-downloadsize">
+                    <div class="info-download-container">
+                        <span class="info-title">Download Size</span>
+                        <span class="info-text" id="info-file-size">work in progress</span>
                     </div>
+                    <a class="source-file-link"></a>
                 </div>
             </div>
             <div class="assetcarddownload">

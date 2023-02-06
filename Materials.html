@@ -5,12 +5,11 @@
         <title>Materials - DeltaGraphics</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
         <link rel="icon" type="image/x-icon" href="Assets/favicon.png">
-        <link rel="stylesheet" href="bootstrap.short.min.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="bootstrap.short.min.css">
         <link rel="stylesheet" href="style.css">
         <script defer src="libraries/swup.min.js"></script>
-        <script defer src="libraries/jszip.min.js"></script>
         <script defer src="js/script.js"></script>
         <script defer src="js/treeview.js"></script>
         <script defer src="js/modals.js"></script>
@@ -19,78 +18,61 @@
         <script defer src="js/imageviewer.js"></script>
     </head>
     <body>
-        <div class="layout" id="layout">
-            <div class="nav" id="navbar">
-                <a href="/home.html" class="navlink" id="homel"><div class="logocontainer"><div class="logo"><span class="navtooltip">Home</span></div></Div></a>
-                <div class="navspacer"></div>
-                <a href="/materials.html" class="navlink-center" id="matl"><div class="logocontainer"><div class="iconmat"><span class="navtooltip">Materials</span></div></Div></a>
-                <a href="/models.html" class="navlink-center" id="modl"><div class="logocontainer"><div class="iconmodel"><span class="navtooltip">Models</span></div></Div></a>
-                <div class="navspacer"></div>
-                <a href="/about.html" class="navlink" id="aboutl"><div class="logocontainer"><div class="iconinfo"><span class="navtooltip">About</span></div></Div></a>
-            </div>
-
-            <div class="transition-fade bottomcontainer" id="swup">
-                <div class="layoutbottom">
-
-                    <div class="sidebar">
-                        <div class="treeviewcontainer">
-                            <div class="treeview">
-
-                                <div class="treeviewcategorycontainer">
-                                    <div class="treeviewarrow" id="metalarrow" title="metal" onclick="togglesubcategory(this.title);"></div>
-                                    <span class="treeviewcategory" id="metal" onclick="selectcategory(this.id);">Metal</span>
-                                    <span class="categoryassetcount">1</span>
-                                </div>
-                                <div class="treeviewsubcategorycontainer" id="metalsubcategory">
-                                    <div class="categorylinewrapper">
-                                        <span class="treeviewsubcategory" id="metalrusty" title="metal" onclick="selectsubcategory(this.id, this.title);">Rusty</span>
-                                        <span class="categoryassetcount">1</span>
-                                    </div>
-                                    <div class="categorylinewrapper">
-                                        <span class="treeviewsubcategory" id="metalclean" title="metal" onclick="selectsubcategory(this.id, this.title);">Clean</span>
-                                        <span class="categoryassetcount">0</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="treeviewcategorycontainer">
-                                    <div class="treeviewarrow" id="concretearrow" title="concrete" onclick="togglesubcategory(this.title);"></div>
-                                    <span class="treeviewcategory" id="concrete" onclick="selectcategory(this.id);">Concrete</span>
-                                    <span class="categoryassetcount">1</span>
-                                </div>
-                                <div class="treeviewsubcategorycontainer" id="concretesubcategory">
-                                    <div class="categorylinewrapper">
-                                        <span class="treeviewsubcategory" id="concretepattern" title="concrete" onclick="selectsubcategory(this.id, this.title);">Pattern</span>
-                                        <span class="categoryassetcount">1</span>
-                                    </div>
-                                </div>
-
+        <div class="nav" id="navbar">
+            <a href="/home.html" class="navlink" id="homel"><div class="logo"><span class="navtooltip">Home</span></div></a>
+            <div class="navspacer"></div>
+            <a href="/materials.html" class="navlink-center" id="matl"><div class="iconmat"><span class="navtooltip">Materials</span></div></a>
+            <a href="/models.html" class="navlink-center" id="modl"><div class="iconmodel"><span class="navtooltip">Models</span></div></a>
+            <div class="navspacer"></div>
+            <a href="/about.html" class="navlink" id="aboutl"><div class="iconinfo"><span class="navtooltip">About</span></div></a>
+        </div>
+        <div class="transition-fade" id="swup">
+            <div class="layout-bottom-assets">
+                <div class="sidebar">
+                    <div class="treeview">
+                        <div class="treeviewcategorycontainer">
+                            <div class="treeviewarrow" id="metalarrow" title="metal" onclick="togglesubcategory(this.title);"></div>
+                            <span class="treeviewcategory" id="metal" onclick="selectcategory(this.id);">Metal</span>
+                            <span class="categoryassetcount">1</span>
+                        </div>
+                        <div class="treeviewsubcategorycontainer" id="metalsubcategory">
+                            <div class="categorylinewrapper">
+                                <span class="treeviewsubcategory" id="metalrusty" title="metal" onclick="selectsubcategory(this.id, this.title);">Rusty</span>
+                                <span class="categoryassetcount">1</span>
+                            </div>
+                            <div class="categorylinewrapper">
+                                <span class="treeviewsubcategory" id="metalclean" title="metal" onclick="selectsubcategory(this.id, this.title);">Clean</span>
+                                <span class="categoryassetcount">0</span>
                             </div>
                         </div>
-                        <div class="filteroptionscontainer">
+                        <div class="treeviewcategorycontainer">
+                            <div class="treeviewarrow" id="concretearrow" title="concrete" onclick="togglesubcategory(this.title);"></div>
+                            <span class="treeviewcategory" id="concrete" onclick="selectcategory(this.id);">Concrete</span>
+                            <span class="categoryassetcount">1</span>
+                        </div>
+                        <div class="treeviewsubcategorycontainer" id="concretesubcategory">
+                            <div class="categorylinewrapper">
+                                <span class="treeviewsubcategory" id="concretepattern" title="concrete" onclick="selectsubcategory(this.id, this.title);">Pattern</span>
+                                <span class="categoryassetcount">1</span>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="searchbar-container">
-                        <input class="searchbar" id="searchbar" type="text" placeholder="Search materials">
-                        <div class="search-options">
-                            <span class="search-options-title">Sort by</span>
-                            <div class="search-option-releasedate">Latest</div>
-                        </div>
-                    </div>
-
-                    <div class="maincontainer" id="maincontainer">
-                        <div class="asset-list-thumb" id="concretepanels1" onclick="showmatassetcard(this.id);enableselects();"><img src="assets/materials/concretepanels1/concretepanels1_thumbnail_640p.webp" class="img"><div class="thumbtitlecontainer"><span class="thumbtitle">Concrete Panels</span></div></div>
-                        <div class="asset-list-thumb" id="plainrust1" onclick="showmatassetcard(this.id);enableselects();"><img src="assets/materials/plainrust1/plainrust1_thumbnail_640p.webp" class="img"><div class="thumbtitlecontainer"><span class="thumbtitle">Plain Rust</span></div></div>
-                        <div class="asset-list-thumb" id="mat3" onclick="showmatassetcard(this.id);enableselects();"><img src="assets/testcircle.png" class="img"><div class="thumbtitlecontainer"><span class="thumbtitle">Material 3</span></div></div>
-                    </div>
-
-                    <div class="fullscreencontainer" id="fullscreencontainer"></div>
-
-                    <div class="modalbg" id="modalbg"></div>
-                    
                 </div>
+                <div class="searchbar-container">
+                    <input class="searchbar" id="searchbar" type="text" placeholder="Search materials">
+                    <div class="search-options">
+                        <span class="search-options-title">Sort by</span>
+                        <div class="search-option-releasedate">Latest</div>
+                    </div>
+                </div>
+                <div class="maincontainer" id="maincontainer">
+                    <div class="asset-list-thumb" id="concretepanels1" onclick="showmatassetcard(this.id);enableselects();"><img src="assets/materials/concretepanels1/concretepanels1_thumbnail_640p.webp" class="img"><div class="thumbtitlecontainer"><span class="thumbtitle">Concrete Panels</span></div></div>
+                    <div class="asset-list-thumb" id="plainrust1" onclick="showmatassetcard(this.id);enableselects();"><img src="assets/materials/plainrust1/plainrust1_thumbnail_640p.webp" class="img"><div class="thumbtitlecontainer"><span class="thumbtitle">Plain Rust</span></div></div>
+                    <div class="asset-list-thumb" id="mat3" onclick="showmatassetcard(this.id);enableselects();"><img src="assets/testcircle.png" class="img"><div class="thumbtitlecontainer"><span class="thumbtitle">Material 3</span></div></div>
+                </div>
+                <div class="fullscreencontainer" id="fullscreencontainer"></div>
+                <div id="modalbg"></div>
             </div>
-            
         </div>
     </body>
 </html>

@@ -3,8 +3,8 @@ function showprivacypolicymodal(){
     document.getElementById("modalbg").innerHTML = `
     <div class="modalbgclose" onclick="closemodal()"></div>
     <div class="modal" id="modal">
-        <div class="modalheader">
-            <div class="modaltitle">Privacy</div>
+        <div class="modal-header">
+            <div class="modal-title">Privacy</div>
             <div class="closebutton" onclick="closemodal()"></div>
         </div>
         <div class="modalbody">

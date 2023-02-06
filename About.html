@@ -5,12 +5,11 @@
         <title>About - DeltaGraphics</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
         <link rel="icon" type="image/x-icon" href="Assets/favicon.png">
-        <link rel="stylesheet" href="bootstrap.short.min.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="bootstrap.short.min.css">
         <link rel="stylesheet" href="style.css">
         <script defer src="libraries/swup.min.js"></script>
-        <script defer src="libraries/jszip.min.js"></script>
         <script defer src="js/script.js"></script>
         <script defer src="js/treeview.js"></script>
         <script defer src="js/modals.js"></script>
@@ -19,73 +18,48 @@
         <script defer src="js/imageviewer.js"></script>
     </head>
     <body>
-        <div class="layout" id="layout">
-            <div class="nav" id="navbar">
-                <a href="/home.html" class="navlink" id="homel"><div class="logocontainer"><div class="logo"><span class="navtooltip">Home</span></div></Div></a>
-                <div class="navspacer"></div>
-                <a href="/materials.html" class="navlink" id="matl"><div class="logocontainer"><div class="iconmat"><span class="navtooltip">Materials</span></div></Div></a>
-                <a href="/models.html" class="navlink" id="modl"><div class="logocontainer"><div class="iconmodel"><span class="navtooltip">Models</span></div></Div></a>
-                <div class="navspacer"></div>
-                <a href="/about.html" class="navlink" id="aboutl"><div class="logocontainer"><div class="iconinfo"><span class="navtooltip">About</span></div></Div></a>
+        <div class="nav" id="navbar">
+            <a href="/home.html" class="navlink" id="homel"><div class="logo"><span class="navtooltip">Home</span></div></a>
+            <div class="navspacer"></div>
+            <a href="/materials.html" class="navlink-center" id="matl"><div class="iconmat"><span class="navtooltip">Materials</span></div></a>
+            <a href="/models.html" class="navlink-center" id="modl"><div class="iconmodel"><span class="navtooltip">Models</span></div></a>
+            <div class="navspacer"></div>
+            <a href="/about.html" class="navlink" id="aboutl"><div class="iconinfo"><span class="navtooltip">About</span></div></a>
+        </div>
+        <div class="transition-fade" id="swup">
+            <div class="aboutpagecontainer">
             </div>
-
-            <div class="transition-fade bottomcontainer" id="swup">
-                <div class="layoutbottomhome">
-                    <div class="aboutpagecontainer">
-
+            <div class="footer">
+                <div class="footer-nav">
+                    <div class="footer-links-container">
+                        <a class="footer-link" href="/home.html">Home</a>
+                        <a class="footer-link" href="/materials.html">Materials</a>
+                        <a class="footer-link" href="/models.html">Models</a>
+                        <a class="footer-link" href="/about.html">About</a>
                     </div>
-                    <div class="footerlarge">
-                        <div class="footernav">
-                            <div class="footerlinkscontainer">
-                                <a class="footerlink" href="/Home.html">Home</a>
-                                <a class="footerlink" href="/Materials.html">Materials</a>
-                                <a class="footerlink" href="/Models.html">Models</a>
-                                <a class="footerlink" href="/About.html">About</a>
-                            </div>
-                            <div class="footeraboutcontainer">
-                                <a class="footerlink" href="/Home.html">FAQ</a>
-                                <a class="footerlink" href="/Materials.html">License</a>
-                                <a class="footerlink" href="/Models.html">Contact</a>
-                                <a class="footerlink" href="https://github.com/DrasChannel/DeltaFX">Source</a>
-                            </div>
-                        </div>
-                        <div class="footerlogocontainer">
-                            <div class="footerlogo"></div>
-                        </div>
-                        <div class="footerdescriptioncontainer">
-                            <div class="footerextdescription">
-                                <p class="footerdesc">
-                                    <span class="footerdesctitle">DeltaFX</span>
-                                    <span class="footerdescmain">
-                                        DeltaFX is a library of free digital 3d assets.
-                                        Designed with a focus on quality, freedom and user experience.
-                                        You can read more on the about page.
-                                    </span>
-                                </p>
-                            </div>
-                            <div class="footerdesclinks">
-                                <a class="footerdesclink" onclick="showprivacypolicymodal()">Privacy</a>
-                            </div>
-                        </div>
+                    <div class="footer-links-container">
+                        <a class="footer-link" href="/home.html">FAQ</a>
+                        <a class="footer-link" href="/materials.html">License</a>
+                        <a class="footer-link" href="/models.html">Contact</a>
+                        <a class="footer-link" href="https://github.com/DrasChannel/DeltaFX">Source</a>
                     </div>
-                    <div class="modalbg" id="modalbg">
-                        <div class="modalbgclose" onclick="closemodal()"></div>
-                        <div class="modal" id="modal">
-                            <div class="modalheader">
-                                <div class="modaltitle">Privacy policy</div>
-                                <div class="closebutton" onclick="closemodal()"></div>
-                            </div>
-                            <div class="modalbody">
-                                This site uses no cookies! That's right, currently the site does not collect any
-                                data or save cookie files, however this might change in the future if features
-                                like dark/light mode switch or download statistics are iplemented. If that happens,
-                                this policy will be updated.
-                            </div>
-                        </div>
+                </div>
+                <div class="footer-logo"></div>
+                <div class="footer-description-container">
+                    <div class="footer-description">
+                        <span class="footer-description-title">DeltaFX</span>
+                        <span>
+                            DeltaFX is a library of free digital 3d assets.
+                            Designed with a focus on quality, freedom and user experience.
+                            You can read more on the <a class="footer-about-link" href="/about.html">about page</a>.
+                        </span>
+                    </div>
+                    <div class="footer-description-links">
+                        <span class="footer-description-link" onclick="showprivacypolicymodal()">Privacy</span>
                     </div>
                 </div>
             </div>
-
+            <div id="modalbg"></div>
         </div>
     </body>
 </html>
