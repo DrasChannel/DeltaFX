@@ -19,22 +19,51 @@ function downloadmaterial(){
     }
     
     let selectedFiles = [];
+    let selectedFileNames = [];
+
     for (let i = 0; i < checkedboxestex.length; i++) {
         selectedFiles.push("content/"+page.replace(".html", "")+"/"+openassetid+"/"+resspan.innerText+"_"+formatspan.innerText+"/"+openassetid+"_"+resspan.innerText+"_"+checkedboxestex[i]+"."+formatspan.innerText.toLowerCase());
+        selectedFileNames.push(openassetid+"_"+resspan.innerText+"_"+checkedboxestex[i]+"."+formatspan.innerText.toLowerCase());
     }
     if(checkedboxesoth.length > 0){
         for (let i = 0; i < checkedboxesoth.length; i++) {
             selectedFiles.push("content/"+page.replace(".html", "")+"/"+openassetid+"/"+openassetid+checkedboxesoth[i]);
+            selectedFileNames.push(openassetid+checkedboxesoth[i]);
         }
     }
-    console.log(selectedFiles)
+    
+
+
+    let zipFileName = openassetid+"_"+resspan.innerText+".zip";
+
+    let xhrdata = {
+        selectedFiles: selectedFiles.join("|"),
+        selectedFileNames: selectedFileNames.join("|"),
+        zipFileName: zipFileName
+    }
 
     let xhr = new XMLHttpRequest();
-    /*xhttp.onload = function() {
-    }*/
-    xhr.open("POST", "./php/generate-zip.php");
-    xhr.send();  
-    document.getElementById("downloadmat").classList.remove('disabled')
+    xhr.open("POST", "./generate-zip.php");
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.responseType = "blob";
+    xhr.onload = function () {
+        if (this.status === 200) {
+            let blob = this.response;
+            let a = document.createElement('a');
+            a.style = "display: none";
+            a.href = window.URL.createObjectURL(blob);
+            a.download = zipFileName;
+            a.click();
+            window.URL.revokeObjectURL(a.href);
+        }
+    };
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            document.getElementById("downloadmat").classList.remove('disabled')
+        }
+    };
+    xhr.send(JSON.stringify(xhrdata));  
+    
 }
 
 
@@ -54,20 +83,26 @@ function calculatefilesize(){
 
     // make http request for the file size and send the data to the next function
     let requests = 0;
-    for(let i = 0; i < checkedboxestex.length; i++){
-        let xhr = new XMLHttpRequest();
-        xhr.open('HEAD', "content/"+page.replace(".html", "")+"/"+openassetid+"/"+resspan.innerText+"_"+formatspan.innerText+"/"+openassetid+"_"+resspan.innerText+"_"+checkedboxestex[i]+"."+formatspan.innerText);
-        xhr.onreadystatechange = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            totalbytes += parseInt(xhr.getResponseHeader('Content-Length'), 10);
-            requests++;
-            if (requests === checkedboxestex.length) {
-                calculateotherfilesize(totalbytes);
+    if(checkedboxestex.length > 0){
+        for(let i = 0; i < checkedboxestex.length; i++){
+            let xhr = new XMLHttpRequest();
+            xhr.open('HEAD', "content/"+page.replace(".html", "")+"/"+openassetid+"/"+resspan.innerText+"_"+formatspan.innerText+"/"+openassetid+"_"+resspan.innerText+"_"+checkedboxestex[i]+"."+formatspan.innerText);
+            xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                totalbytes += parseInt(xhr.getResponseHeader('Content-Length'), 10);
+                requests++;
+                if (requests === checkedboxestex.length) {
+                    calculateotherfilesize(totalbytes);
+                }
             }
+            };
+            xhr.send();
         }
-        };
-        xhr.send();
     }
+    else{
+        updatesize(totalbytes2+totalbytes);
+    }
+    
 }
 // calculate file size for other files
 function calculateotherfilesize(totalbytes) {
