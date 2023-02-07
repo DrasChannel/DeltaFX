@@ -28,6 +28,12 @@ function downloadmaterial(){
         }
     }
     console.log(selectedFiles)
+
+    let xhr = new XMLHttpRequest();
+    /*xhttp.onload = function() {
+    }*/
+    xhr.open("POST", "./php/generate-zip.php");
+    xhr.send();  
     document.getElementById("downloadmat").classList.remove('disabled')
 }
 
