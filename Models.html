@@ -15,6 +15,7 @@
         <script defer src="js/assetcards.js"></script>
         <script defer src="js/download.js"></script>
         <script defer src="js/imageviewer.js"></script>
+        <script defer src="js/search.js"></script>
     </head>
     <body>
         <div class="nav" id="navbar">
@@ -30,10 +31,12 @@
                 <div class="sidebar">
                 </div>
                 <div class="searchbar-container">
-                    <input class="searchbar" id="searchbar" type="text" placeholder="Search models">
+                    <div class="searchbar" id="searchbar" onclick="focussearch(event)">
+                        <svg width="25" height="25" style="pointer-events: none;"><image href="assets/svg/search.svg" x="0" y="0" width="25" height="25"/></svg>
+                        <input class="searchbar-input" id="searchbar-input" type="text" placeholder="Search models" onfocus="activatesearchbar()">
+                    </div>
                     <div class="search-options">
-                        <span class="search-options-title">Sort by</span>
-                        <div class="search-option-releasedate">Latest</div>
+                        <div class="search-option-releasedate">Latest<div class="search-option-arrow"></div></div>
                     </div>
                 </div>
                 <div class="maincontainer">

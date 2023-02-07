@@ -25,8 +25,8 @@
      inkscape:document-units="px"
      showgrid="true"
      inkscape:zoom="8.3352095"
-     inkscape:cx="12.477191"
-     inkscape:cy="15.23657"
+     inkscape:cx="-1.7995948"
+     inkscape:cy="15.356543"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="-8"
@@ -61,7 +61,7 @@
        id="path-effect961"
        is_visible="true"
        lpeversion="1"
-       nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,10,0,1 @ F,0,0,1,0,10,0,1"
+       nodesatellites_param="F,0,0,1,0,10,0,1 @ F,0,0,1,0,10,0,1 @ F,0,0,1,0,10,0,1 | F,0,0,1,0,10,0,1 @ F,0,0,1,0,10,0,1 @ F,0,0,1,0,10,0,1 | F,0,0,1,0,10,0,1 @ F,0,0,1,0,10,0,1 @ F,0,0,1,0,10,0,1 | F,0,0,1,0,10,0,1 @ F,0,0,1,0,10,0,1 @ F,0,0,1,0,10,0,1"
        unit="px"
        method="auto"
        mode="F"
@@ -130,28 +130,10 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       style="fill:none;stroke:#b2b2b2;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none"
-       d="M 5,20 V 15 A 10,10 135 0 1 15,5 h 5"
-       id="path947"
-       inkscape:path-effect="#path-effect963"
-       inkscape:original-d="M 5,20 V 5 h 15" />
-    <path
-       style="fill:none;stroke:#b2b2b2;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none"
-       d="m 40,5 h 5 a 10,10 45 0 1 10,10 v 5"
-       id="path949"
-       inkscape:path-effect="#path-effect957"
-       inkscape:original-d="M 40,5 H 55 V 20" />
-    <path
-       style="fill:none;stroke:#b2b2b2;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none"
-       d="m 55,40 v 5 A 10,10 135 0 1 45,55 h -5"
-       id="path951"
-       inkscape:original-d="M 55,40 V 55 H 40"
-       inkscape:path-effect="#path-effect955;#path-effect959" />
-    <path
-       style="fill:none;stroke:#b2b2b2;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none"
-       d="M 20,55 H 15 A 10,10 45 0 1 5,45 v -5"
        id="path953"
+       style="fill:none;stroke:#949494;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none"
        inkscape:path-effect="#path-effect961"
-       inkscape:original-d="M 20,55 H 5 V 40" />
+       inkscape:original-d="M 20,55 H 5 V 40 m 50,0 V 55 H 40 M 40,5 H 55 V 20 M 5,20 V 5 h 15"
+       d="M 20,55 H 15 A 10,10 45 0 1 5,45 v -5 m 50,0 v 5 A 10,10 135 0 1 45,55 H 40 M 40,5 h 5 a 10,10 45 0 1 10,10 v 5 M 5,20 V 15 A 10,10 135 0 1 15,5 h 5" />
   </g>
 </svg>

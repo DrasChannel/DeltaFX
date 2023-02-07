@@ -31,6 +31,7 @@ img,svg{
 }
 button,input{
     margin:0;
+    outline: none;
     font-size:inherit;
     line-height:inherit
 }

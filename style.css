@@ -519,16 +519,14 @@ body{
     margin-left: 340px;
 }
 .searchbar{
+    display: flex;
     background-color: #1c1c1c;
     border: solid 2px #2b2b2b;
     border-radius: 18px;
     padding: 9px 12.5px;
+    align-items: center;
 
     transition: all 150ms;
-    
-    font-size: 16px;
-    color: #f0f0f0;
-    outline: none;
     
     width: 600px;
     pointer-events: auto;
@@ -536,8 +534,14 @@ body{
 .searchbar:hover{
     border: solid 2px #303030;
 }
-.searchbar:focus{
+.searchbar.active{
     border: solid 2px #1aa8ff;
+}
+.searchbar-input{
+    background: transparent;
+    border: 0;
+    color: #f0f0f0;
+    margin-left: 9px;
 }
 .search-options{
     display: flex;
@@ -547,21 +551,25 @@ body{
     pointer-events: auto;
     margin-left: 60px;
 }
-.search-options-title{
-    font-weight: 400;
-    color: #e0e0e0;
-    font-size: 16px;
-    white-space: nowrap;
-}
 .search-option-releasedate{
-    font-size: 16px;
-    font-weight: 400;
+    display: flex;
+    align-items: center;
     color: #e0e0e0;
     background-color: #2b2b2b;
-    padding: 8px 10px;
+    padding: 8px 10px 8px 13px;
     border-radius: 12px;
-    margin-left: 10px;
     user-select: none;
+}
+.search-option-arrow{
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(/Assets/svg/arrow.svg);
+    background-size: 12px;
+    transform: rotate(90deg);
+    transition: all 150ms;
 }
 
 
@@ -570,7 +578,7 @@ body{
 .asset-list-thumb{
     display: flex;
     position: relative;
-    border-radius: 10px;
+    border-radius: 12px;
     max-height: 300px;
 }
 .asset-list-thumb:hover{
