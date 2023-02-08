@@ -10,8 +10,8 @@
 /*   Fonts   */
 
 @font-face {
-    font-family: Commissioner;
-    src: url(Assets/Commissioner.ttf);
+    font-family: Commissioner-minimal;
+    src: url(assets/commissioner-minimal.woff2);
     font-weight: 100 1000;
 }
 
@@ -30,7 +30,7 @@ html.is-animating .transition-fade{
 /*   General   */
 
 *{
-    font-family: Commissioner !important;
+    font-family: Commissioner-minimal !important;
     transition-duration: 200ms;
 }
 body{
