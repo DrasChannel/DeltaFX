@@ -19,7 +19,11 @@ function showmatassetcard(id3) {
     <div class="modalbgclose" id="modalbgclose" onclick="closeassetcard()"></div>
     <div class="assetcard" id="assetcard">
         <div class="imageviewer" id="imageviewer">
-            <img class="viewingimage" id="viewingimage" src="">
+            <div class="vieweing-image-container" id="vieweing-image-container">
+                <img class="viewingimage" id="viewingimage1" src="">
+                <img class="viewingimage" id="viewingimage2" src="">
+                <img class="viewingimage" id="viewingimage3" src="">
+            </div>
             <div class="image-select-container">
                 <div class="imageselector">
                     <div class="image" id="image1" onclick="selectimage(this.id)"></div>
@@ -159,14 +163,18 @@ function showmatassetcard(id3) {
     // set the thumbnails to image selector
     document.getElementById("image1").setAttribute("class", "image");
     document.getElementById('image1').style.backgroundImage="url(assets/materials/"+id3+"/"+id3+"_image1_192p.jpeg)";
+    document.getElementById("viewingimage1").setAttribute("src", "assets/materials/"+openassetid+"/"+openassetid+"_image1_1360p.jpeg")
     document.getElementById("image2").setAttribute("class", "image");
     document.getElementById('image2').style.backgroundImage="url(assets/materials/"+id3+"/"+id3+"_image2_192p.jpeg)";
+    document.getElementById("viewingimage2").setAttribute("src", "assets/materials/"+openassetid+"/"+openassetid+"_image2_1360p.jpeg")
     document.getElementById("image3").setAttribute("class", "image");
     document.getElementById('image3').style.backgroundImage="url(assets/materials/"+id3+"/"+id3+"_image3_192p.jpeg)";
+    document.getElementById("viewingimage3").setAttribute("src", "assets/materials/"+openassetid+"/"+openassetid+"_image3_1360p.jpeg")
 
     // set the default selected image
     document.getElementById("image2").setAttribute("class", "image selected");
-    document.getElementById("viewingimage").setAttribute("src", "assets/materials/"+id3+"/"+id3+"_image2_1360p.jpeg")
+
+    // add active class to modalbg and disable html overflow
     document.getElementById("modalbg").setAttribute("class", "active");
     document.getElementById("html").style.overflow = "hidden";
 
@@ -276,9 +284,14 @@ function closeassetcard() {
 }
 
 function selectimage(id2){
+    // reset all images to be unselected and select the one the user clicked on
     document.getElementById("image1").setAttribute("class", "image");
     document.getElementById("image2").setAttribute("class", "image");
     document.getElementById("image3").setAttribute("class", "image");
     document.getElementById(id2).setAttribute("class", "image selected");
-    document.getElementById("viewingimage").setAttribute("src", "assets/materials/"+openassetid+"/"+openassetid+"_"+id2+"_1360p.jpeg")
+
+    // extract the clicked image number and calculate the offset for vieweing-image-containe 
+    let imgnumber = id2.replace("image", "")
+    document.getElementById("vieweing-image-container").style.transform = `translate(0, `+(((imgnumber *688)-1376)*(-1))+`px)`;
+    
 }

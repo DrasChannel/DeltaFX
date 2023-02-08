@@ -5,9 +5,6 @@ This repo contains source code for the website.
 
 ## How to run
 
-The website is built using plain HTML/CSS/JS.
-All it needs is to be ran on a live server for now.
-
-## Todo
-
- - Basically the entire site
+The website is built using plain HTML/CSS/JS/PHP.
+You can run it on a live server, but if you want downloading to work, then you need to host a server for php.
+I recommend using this php server vscode extension: https://marketplace.visualstudio.com/items?itemName=brapifra.phpserver

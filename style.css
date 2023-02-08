@@ -636,6 +636,7 @@ body{
     background-color: #212121;
     border: 1px solid rgba(200, 200, 200, 0.05);
     border-radius: 20px;
+    overflow: hidden;
 }
 .imageviewer{
     display: flex;
@@ -645,11 +646,13 @@ body{
     height: 688px;
     width: 688px;
 }
+.vieweing-image-container{
+    transform: translate(0, 0px);
+}
 .viewingimage{
     display: flex;
     width: 100%;
     height: 100%;
-    border-radius: 20px 0 0 20px;
 }
 .assetdescription{
     display: flex;
