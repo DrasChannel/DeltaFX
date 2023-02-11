@@ -17,16 +17,24 @@
         $zip->close();
     }
     
+    // headers
     header('Content-Type: application/zip');
     header('Content-Disposition: attachment; filename="'.basename($filezip).'"');
-    readfile($filezip);
-    unlink($filezip);
-    
-    /*if (file_exists($filezip)) {
-        
-        header('Content-Length: ' . filesize($filezip));
-        readfile($filezip);
-        unlink($filezip);
-    }*/
+    header("Content-Length: " . filesize($filezip));
 
+    // Open the file for reading
+    $fp = fopen($filezip, "r");
+    
+    // Read the file in 8KB chunks and send the data to the client
+    while(!feof($fp)) {
+        echo fread($fp, 16384);
+        flush();
+    }
+    
+    // Close and unlink the files
+    fclose($fp);
+    unlink($filezip);
+    unset($zipFileName);
+    unset($filezip);
+    unset($fp);
 ?>
