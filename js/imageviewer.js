@@ -83,7 +83,7 @@ function openfullscreenview() {
                 ys = (e.clientY - pointY) / scale,
             delta = (e.wheelDelta ? e.wheelDelta : -e.deltaY);
             (delta > 0) ? (scale *= 1.2) : (scale /= 1.2);
-            scale = Math.min(Math.max(1, scale), 6);
+            scale = Math.min(Math.max(1, scale), 5);
             pointX = e.clientX - xs * scale;
             pointY = e.clientY - ys * scale;
 

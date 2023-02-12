@@ -11,7 +11,9 @@
         "texturemaps" : ["Base Color", "Normal", "Roughness", "Height", "Ambient Occlusion"],
         "texturemapids" : ["basecolor", "normalgl", "roughness", "height", "ao"],
         "otherfiles" : ["Sbsar"],
-        "otherfileids" : [".sbsar"]
+        "otherfileids" : [".sbsar"],
+        "category" : "concrete",
+        "subcategory" : "tiles"
     },
     
     "plainrust1" : {
@@ -26,7 +28,9 @@
         "texturemaps" : ["Base Color", "Normal", "Roughness", "Height", "Ambient Occlusion"],
         "texturemapids" : ["basecolor", "normalgl", "roughness", "height", "ao"],
         "otherfiles" : [],
-        "otherfileids" : []
+        "otherfileids" : [],
+        "category" : "metal",
+        "subcategory" : "rusty"
     },
 
     "mat3" : {
@@ -41,7 +45,9 @@
         "texturemaps" : ["Base Color", "Normal", "Roughness", "Height"],
         "texturemapids" : ["basecolor", "normalgl", "roughness", "height"],
         "otherfiles" : ["Mesh (21849 poly)","Raw scan"],
-        "otherfileids" : ["mesh","rawscan"]
+        "otherfileids" : ["mesh","rawscan"],
+        "category" : "idk",
+        "subcategory" : "sample"
     }
     
 }

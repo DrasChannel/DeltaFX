@@ -9,9 +9,8 @@ function showprivacypolicymodal(){
         </div>
         <div class="modalbody">
             This site uses no cookies! That's right, currently the site does not collect any
-            data or save cookie files, however this might change in the future if features
-            like dark/light mode switch or download statistics are iplemented. If that happens,
-            this policy will be updated.
+            data or save cookie files, however this might change in the future if new features that
+            require it are implemented.
         </div>
     </div>`
     document.getElementById("modalbg").setAttribute("class", "active");
