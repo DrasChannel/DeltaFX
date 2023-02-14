@@ -1,4 +1,30 @@
 <?php
+    if(!isset($_COOKIE["downloads"])) {
+        $cookie_name = "downloads";
+        $cookie_value = "1";
+        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+    } else {
+        $downloads = $_COOKIE["downloads"];
+
+        $cookie_name = "downloads";
+        $cookie_value = $downloads + 1;
+        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+    }
+    
+    if(isset($_COOKIE["downloads"])) {
+        echo "swfiofo";
+        $downloads = $_COOKIE["downloads"];
+
+        $cookie_name = "downloads";
+        $cookie_value = $downloads -1;
+        
+        if($_COOKIE["downloads"]<=0) {
+            setcookie("downloads", 0, time() - 3600, "/");
+        } else {
+            setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+        }
+    }
+    
     // variables
     $data = json_decode(file_get_contents("php://input"), true);
     $selectedFiles = explode("|", $data['selectedFiles']);
@@ -25,7 +51,7 @@
     // Open the file for reading
     $fp = fopen($filezip, "r");
     
-    // Read the file in 8KB chunks and send the data to the client
+    // Read the file in chunks and send the data to the client
     while(!feof($fp)) {
         echo fread($fp, 16384);
         flush();
@@ -37,4 +63,6 @@
     unset($zipFileName);
     unset($filezip);
     unset($fp);
+
+    
 ?>
