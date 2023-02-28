@@ -60,6 +60,9 @@ function downloadmaterial(){
     xhr.onreadystatechange = function () {
         if (xhr.readyState == XMLHttpRequest.DONE) {
             document.getElementById("downloadmat").classList.remove('disabled')
+            let xhr2 = new XMLHttpRequest();
+            xhr2.open("POST", "./manage-cookies.php");
+            xhr2.send();
         }
     };
     xhr.send(JSON.stringify(xhrdata));  

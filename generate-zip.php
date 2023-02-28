@@ -11,20 +11,6 @@
         setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
     }
     
-    if(isset($_COOKIE["downloads"])) {
-        echo "swfiofo";
-        $downloads = $_COOKIE["downloads"];
-
-        $cookie_name = "downloads";
-        $cookie_value = $downloads -1;
-        
-        if($_COOKIE["downloads"]<=0) {
-            setcookie("downloads", 0, time() - 3600, "/");
-        } else {
-            setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
-        }
-    }
-    
     // variables
     $data = json_decode(file_get_contents("php://input"), true);
     $selectedFiles = explode("|", $data['selectedFiles']);
@@ -63,6 +49,4 @@
     unset($zipFileName);
     unset($filezip);
     unset($fp);
-
-    
 ?>
