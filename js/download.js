@@ -1,5 +1,6 @@
 function downloadmaterial(){
     document.getElementById("downloadmat").classList.add('disabled')
+    document.getElementById("downloadmat").innerHTML = "Please wait"
     let page = window.location.pathname.split("/").pop();
     
     let checkboxestex = document.getElementById("info-checkbox-textures").querySelectorAll('.info-checkbox');
@@ -57,9 +58,17 @@ function downloadmaterial(){
             window.URL.revokeObjectURL(a.href);
         }
     };
+    xhr.addEventListener("progress", function(event) {
+        if (event.lengthComputable) {
+            let percentLoaded = (event.loaded / event.total) * 100;
+            document.getElementById("download-progress-bar").style.width = percentLoaded.toFixed(2)+"%";
+        }
+    });
     xhr.onreadystatechange = function () {
         if (xhr.readyState == XMLHttpRequest.DONE) {
             document.getElementById("downloadmat").classList.remove('disabled')
+            document.getElementById("downloadmat").innerHTML = "Download"
+            document.getElementById("download-progress-bar").style.width = "0";
             let xhr2 = new XMLHttpRequest();
             xhr2.open("POST", "./manage-cookies.php");
             xhr2.send();

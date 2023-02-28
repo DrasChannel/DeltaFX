@@ -1,12 +1,17 @@
 <?php
-    if(!isset($_COOKIE["downloads"])) {
-        $cookie_name = "downloads";
+    // set cookies for downloading
+    if(!isset($_COOKIE["D"])) {
+        $cookie_name = "D";
         $cookie_value = "1";
         setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
     } else {
-        $downloads = $_COOKIE["downloads"];
+        $downloads = $_COOKIE["D"];
 
-        $cookie_name = "downloads";
+        if($downloads>=3) {
+            exit();
+        }
+
+        $cookie_name = "D";
         $cookie_value = $downloads + 1;
         setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
     }

@@ -94,7 +94,10 @@ function showmatassetcard(id3) {
                         </div>
                     </div>
                 </div>
-                <button class="button-large primary" id="downloadmat" onclick="downloadmaterial()">Download</button>
+                <div class="download-button-container">
+                    <div class="download-button-progress" id="download-progress-bar"></div>
+                    <button class="button-large primary" id="downloadmat" onclick="downloadmaterial()">Download</button>
+                </div>
             </div>
         </div>
     </div>

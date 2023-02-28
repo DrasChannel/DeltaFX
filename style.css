@@ -778,23 +778,24 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #303030;
+    background: #2b2b2b;
     color: #f0f0f0;
     border: none;
     border-radius: 12px;
     width: 128px;
     font-weight: 600;
     transition: all 150ms;
+    z-index: 3;
 
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
 }
 .button-large:hover{
-    background-color: #393939;
+    background-color: #353535;
 }
 .button-large:active{
-    background-color: #505050;
+    background-color: #3f3f3f;
 }
 .button-large.primary{
     background-color: #199df0;
@@ -806,9 +807,26 @@ body{
     background-color: #137ab9;
 }
 .button-large.primary.disabled{
-    color: #696969;
-    background-color: #303030;
+    color: #949494;
+    background-color: transparent;
     pointer-events: none;
+}
+.download-button-container{
+    display: flex;
+    border-radius: 12px;
+    position: relative;
+    background-color: #2b2b2b;
+    overflow: hidden;
+}
+.download-button-progress{
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background-color: #494949;
+    border-radius: 12px;
+}
+.download-progress-span{
+    font-size: 14px;
 }
 .info-title{
     font-size: 17px;
@@ -871,10 +889,10 @@ body{
     user-select: none;
 }
 .button-tiny:hover{
-    background-color: rgb(53, 53, 53);
+    background-color: #353535;
 }
 .button-tiny:active{
-    background-color: rgb(63, 63, 63);
+    background-color: #3f3f3f;
 }
 .info-checkbox-container{
     display: flex;
@@ -1257,7 +1275,7 @@ body{
     border-radius: 8px;
 }
 .dropdown-option.selected{
-    background-color: rgb(63, 63, 63);
+    background-color: #3f3f3f;
     border-radius: 8px;
 }
 
