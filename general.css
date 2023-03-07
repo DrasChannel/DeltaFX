@@ -36,3 +36,25 @@ button,input{
     font-size:inherit;
     line-height:inherit
 }
+
+:root{
+    --accent: #1aa8ff;
+
+    --dark-darker: #1A1A1A;
+    --dark-default: #212121;
+    --dark-1: #262626;
+    --dark-2: #2B2B2B;
+    --dark-3: #303030;
+    --dark-4: #353535;
+    --dark-5: #3F3F3F;
+
+    --light-1: #F0F0F0;
+    --light-2: #E0E0E0;
+    --light-3: #CCCCCC;
+    --light-4: #B3B3B3;
+    --light-5: #949494;
+}
+
+svg:hover{
+    fill: #1aa8ff;
+}
