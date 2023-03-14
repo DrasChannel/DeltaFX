@@ -1,3 +1,25 @@
+//find out cookie value
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+
+
+// download material
+
 function downloadmaterial(){
     document.getElementById("downloadmat").classList.add('disabled')
     document.getElementById("downloadmat").innerHTML = "Please wait"
@@ -49,13 +71,19 @@ function downloadmaterial(){
     xhr.responseType = "blob";
     xhr.onload = function () {
         if (this.status === 200) {
-            let blob = this.response;
-            let a = document.createElement('a');
-            a.style = "display: none";
-            a.href = window.URL.createObjectURL(blob);
-            a.download = zipFileName;
-            a.click();
-            window.URL.revokeObjectURL(a.href);
+            let cookievalue = parseInt(getCookie("D"));
+            if(cookievalue>=3){
+                console.log("Error! You are downloading too much. Slow down!")
+            }
+            else{
+                let blob = this.response;
+                let a = document.createElement('a');
+                a.style = "display: none";
+                a.href = window.URL.createObjectURL(blob);
+                a.download = zipFileName;
+                a.click();
+                window.URL.revokeObjectURL(a.href);
+            } 
         }
     };
     xhr.addEventListener("progress", function(event) {
@@ -155,3 +183,4 @@ function calculateotherfilesize(totalbytes) {
 function updatesize(bytesum){
     document.getElementById("info-file-size").innerHTML = (bytesum * 0.00000095367432).toFixed(2)+" mb"
 }
+
