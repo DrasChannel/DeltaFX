@@ -36,6 +36,12 @@ button,input{
     font-size:inherit;
     line-height:inherit
 }
+h4,h3{
+    font-weight: 500;
+}
+svg:hover{
+    fill: #1aa8ff;
+}
 
 :root{
     --accent: #1aa8ff;
@@ -55,6 +61,3 @@ button,input{
     --light-5: #949494;
 }
 
-svg:hover{
-    fill: #1aa8ff;
-}

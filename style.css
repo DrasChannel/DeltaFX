@@ -137,7 +137,7 @@ body{
     padding: 4px 0 4px 30px;
     color: #cccccc;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 500;
     transition-duration: 150ms;
 }
 .footer-link:hover{
@@ -173,7 +173,7 @@ body{
     align-items: center;
 }
 .footer-description-link{
-    font-weight: 400;
+    font-weight: 500;
     font-size: 18px;
     padding-left: 10px;
     padding-right: 15px;
@@ -187,7 +187,7 @@ body{
 }
 .footer-about-link{
     color: #e0e0e0;
-    font-weight: 400;
+    font-weight: 500;
 }
 .footer-about-link:hover{
     color: var(--accent);
@@ -536,6 +536,7 @@ body{
     cursor: pointer;
     transition: all 150ms;
     padding: 2.5px 0;
+    font-weight: 500;
 }
 .treeviewcategory:hover{
     color: #f0f0f0;
@@ -549,6 +550,7 @@ body{
     cursor: pointer;
     transition: all 150ms;
     padding: 2.6px 0;
+    font-weight: 500;
 }
 .treeviewsubcategory:hover{
     color: #f0f0f0;
@@ -630,7 +632,8 @@ body{
 .search-option-releasedate{
     display: flex;
     align-items: center;
-    color: #e0e0e0;
+    color: var(--light-3);
+    font-weight: 500;
     background-color: var(--dark-2);
     padding: 8px 10px 8px 13px;
     border-radius: 12px;
@@ -687,8 +690,7 @@ body{
     transition-duration: 150ms;
 }
 .thumbtitle{
-    color: #f0f0f0;
-    font-weight: 400;
+    color: var(--light-2);
     margin-top: 260px;
     font-size: 14px;
 
@@ -752,7 +754,7 @@ body{
     color: #cccccc;
     display: flex;
     font-size: 14px;
-    font-weight: 300;
+    font-weight: 400;
 }
 .assetcardinfo{
     display: flex;
@@ -836,7 +838,6 @@ body{
 .info-text{
     font-size: 14px;
     color: #b3b3b3;
-    font-weight: 300;
 }
 .infocontainer{
     display: flex;
@@ -877,7 +878,6 @@ body{
     color: #cccccc;
     border: none;
     border-radius: 9px;
-    font-weight: 300;
     transition: all 150ms;
     padding: 3px 6px;
     margin-right: 4px;
@@ -910,7 +910,6 @@ body{
 .info-map-name{
     color: #cccccc;
     font-size: 14px;
-    font-weight: 300;
     margin-left: 16px;
 }
 .info-checkbox-textures{
@@ -1293,6 +1292,7 @@ body{
     z-index: 20;
     pointer-events: none;
     align-items: flex-end;
+    justify-content: center;
 }
 .cookie-popup{
     display: flex;
@@ -1304,10 +1304,19 @@ body{
     border: 1px solid rgba(200, 200, 200, 0.05);
     margin: 20px;
     border-radius: 20px;
-    color: var(--light-2);
-    font-weight: 500;
+    color: var(--light-3);
+    font-weight: 400;
 }
-
+.cookie-link{
+    user-select: none;
+    font-weight: 500;
+    color: var(--light-2);
+    margin-left: 10px;
+    cursor: pointer;
+}
+.cookie-link:hover{
+    color: var(--accent);
+}
 
 
 
