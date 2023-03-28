@@ -2,7 +2,7 @@
     // set cookies for downloading
     if(!isset($_COOKIE["D"])) {
         $cookie_name = "D";
-        $cookie_value = "7";
+        $cookie_value = "1";
         setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
     } else {
         $downloads = $_COOKIE["D"];

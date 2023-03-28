@@ -9,6 +9,7 @@ function preload() {
 preload(
     "assets/svg/arrowcolorful.svg",
     "assets/svg/closebuttoncolorful.svg",
+    "assets/svg/closebuttoncolorfulBOLD.svg",
     "assets/svg/downloadcolorful.svg",
     "assets/svg/filesbscolorful.svg",
     "assets/svg/fullscreencolorful.svg",
