@@ -8,7 +8,7 @@ function togglesubcategory(id4){
 
 function selectcategory(id5){
     document.getElementById(id5).classList.toggle("selected");
-    document.getElementById(id5).setAttribute("onclick", "deselectcategory(this.id);");
+    document.getElementById(id5).setAttribute("onclick", "deselectcategory(this.id);categorysearch(this.id, this.attributes['name'].value, this.attributes['name'].value)");
 
     if (document.getElementById(id5+"arrow").classList.contains("active") == true){
 
@@ -22,7 +22,7 @@ function selectcategory(id5){
     treeviewcategories.forEach((trvwcategory) =>{
         if (trvwcategory.id != id5){
             trvwcategory.classList.remove("selected");
-            trvwcategory.setAttribute("onclick", "selectcategory(this.id);");
+            trvwcategory.setAttribute("onclick", "selectcategory(this.id);categorysearch(this.id, this.attributes['name'].value, this.attributes['name'].value)");
 
             if (document.getElementById(trvwcategory.id+"arrow").classList.contains("active") == true){
                 document.getElementById(trvwcategory.id+"arrow").classList.remove("active");
@@ -49,7 +49,7 @@ function selectsubcategory(id6, id7){
     treeviewcategories.forEach((trvwcategory) =>{
         if (trvwcategory.id != id7){
             trvwcategory.classList.remove("selected");
-            trvwcategory.setAttribute("onclick", "selectcategory(this.id);");
+            trvwcategory.setAttribute("onclick", "selectcategory(this.id);categorysearch(this.id, this.attributes['name'].value, this.attributes['name'].value)");
 
             if (document.getElementById(trvwcategory.id+"arrow").classList.contains("active") == true){
                 document.getElementById(trvwcategory.id+"arrow").classList.remove("active");
@@ -65,13 +65,13 @@ function selectsubcategory(id6, id7){
     }
     if (document.getElementById(id7).classList.contains("selected") == true){
         document.getElementById(id7).classList.toggle("selected");
-        document.getElementById(id7).setAttribute("onclick", "selectcategory(this.id);");
+        document.getElementById(id7).setAttribute("onclick", "selectcategory(this.id);categorysearch(this.id, this.attributes['name'].value, this.attributes['name'].value)");
     }
 }
 
 function deselectcategory(id6){
     document.getElementById(id6).classList.toggle("selected");
-    document.getElementById(id6).setAttribute("onclick", "selectcategory(this.id);");
+    document.getElementById(id6).setAttribute("onclick", "selectcategory(this.id);categorysearch(this.id, this.attributes['name'].value, this.attributes['name'].value)");
 
     if (document.getElementById(id6+"arrow").classList.contains("active") == true){
         document.getElementById(id6+"arrow").classList.toggle("active");

@@ -30,3 +30,23 @@ function activatesearchbar(){
 function removestag(sname){
     document.getElementById(sname).remove()
 }
+
+function categorysearch(clickid, categoryid, subcatid){
+    if(document.getElementById(clickid).classList.contains("selected")){
+        if(clickid == subcatid){
+            document.getElementById("treeview-tag"). innerHTML = `
+            <div class="s-tag" style="color: var(--light-5);" id="`+clickid+`-ctag">`+clickid.charAt(0).toUpperCase() + clickid.slice(1)+`</div>
+            `
+        } else {
+            document.getElementById("treeview-tag"). innerHTML = `
+            <div class="s-tag" style="color: var(--light-5);" id="`+clickid+`-ctag">`+categoryid.charAt(0).toUpperCase() + categoryid.slice(1)+`/`+subcatid.charAt(0).toUpperCase() + subcatid.slice(1)+`</div>
+            `
+        } 
+    } else {
+        document.getElementById("treeview-tag"). innerHTML = ""
+    }
+}
+
+function removecategorysearch() {
+    document.getElementById("treeview-tag"). innerHTML = ""
+}

@@ -35,28 +35,28 @@
                 <div class="sidebar">
                     <div class="treeview">
                         <div class="treeviewcategorycontainer">
-                            <div class="treeviewarrow" id="metalarrow" onclick="togglesubcategory('metal');"></div>
-                            <span class="treeviewcategory" id="metal" onclick="selectcategory(this.id);">Metal</span>
+                            <div class="treeviewarrow" id="metalarrow" onclick="togglesubcategory('metal');removecategorysearch()"></div>
+                            <span class="treeviewcategory" id="metal" name="metal" onclick="selectcategory(this.id);categorysearch(this.id, this.attributes['name'].value, this.attributes['name'].value)">Metal</span>
                             <span class="categoryassetcount">1</span>
                         </div>
                         <div class="treeviewsubcategorycontainer" id="metalsubcategory">
                             <div class="categorylinewrapper">
-                                <span class="treeviewsubcategory" id="metalrusty" onclick="selectsubcategory(this.id, 'metal');">Rusty</span>
+                                <span class="treeviewsubcategory" id="metalrusty" name="rusty" onclick="selectsubcategory(this.id, 'metal');categorysearch(this.id, 'metal', this.attributes['name'].value)">Rusty</span>
                                 <span class="categoryassetcount">1</span>
                             </div>
                             <div class="categorylinewrapper">
-                                <span class="treeviewsubcategory" id="metalclean" onclick="selectsubcategory(this.id, 'metal');">Clean</span>
+                                <span class="treeviewsubcategory" id="metalclean" name="clean" onclick="selectsubcategory(this.id, 'metal');categorysearch(this.id, 'metal', this.attributes['name'].value)">Clean</span>
                                 <span class="categoryassetcount">0</span>
                             </div>
                         </div>
                         <div class="treeviewcategorycontainer">
-                            <div class="treeviewarrow" id="concretearrow" onclick="togglesubcategory('concrete');"></div>
-                            <span class="treeviewcategory" id="concrete" onclick="selectcategory(this.id);">Concrete</span>
+                            <div class="treeviewarrow" id="concretearrow" onclick="togglesubcategory('concrete');removecategorysearch()"></div>
+                            <span class="treeviewcategory" id="concrete" name="concrete" onclick="selectcategory(this.id);categorysearch(this.id, this.attributes['name'].value, this.attributes['name'].value)">Concrete</span>
                             <span class="categoryassetcount">1</span>
                         </div>
                         <div class="treeviewsubcategorycontainer" id="concretesubcategory">
                             <div class="categorylinewrapper">
-                                <span class="treeviewsubcategory" id="concretepattern" onclick="selectsubcategory(this.id, 'concrete');">Pattern</span>
+                                <span class="treeviewsubcategory" id="concretepattern" name="pattern" onclick="selectsubcategory(this.id, 'concrete');categorysearch(this.id, 'concrete', this.attributes['name'].value)">Pattern</span>
                                 <span class="categoryassetcount">1</span>
                             </div>
                         </div>
@@ -65,9 +65,8 @@
                 <div class="searchbar-container">
                     <div class="searchbar" id="searchbar" onclick="focussearch(event)">
                         <svg width="24" height="24" style="pointer-events: none;min-width: 26px;"><image href="assets/svg/search.svg" x="0" y="0" width="24" height="24"></image></svg>
-                        <div class="search-tags" id="search-tags">
-                            
-                        </div>
+                        <div class="search-tags" id="treeview-tag"></div>
+                        <div class="search-tags" id="search-tags"></div>
                         <input class="searchbar-input" id="searchbar-input" type="text" placeholder="Search materials" onfocus="activatesearchbar()">
                     </div>
                     <div class="search-options">
