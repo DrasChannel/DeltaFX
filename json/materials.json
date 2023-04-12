@@ -1,4 +1,21 @@
 {
+    "layeredcliff1" : {
+        "assetname" : "Layered Cliff",
+        "assettype" : "PBR Material",
+        "methodofcreation" : "Procedural (SBS)",
+        "releasedate" : "12/04/2023",
+        "dimensions" : "",
+        "tags" : "Rock Stone Coastal Cliff Rough Layered",
+        "resolutions" : ["8K", "4K", "2K"],
+        "fileformats" : ["PNG", "JPG", "TIF"],
+        "texturemaps" : ["Base Color", "Normal", "Roughness", "Height", "Ambient Occlusion"],
+        "texturemapids" : ["basecolor", "normalgl", "roughness", "height", "ao"],
+        "otherfiles" : ["Sbsar"],
+        "otherfileids" : [".sbsar"],
+        "category" : "rock",
+        "subcategory" : "cliff"
+    },
+
     "concretepanels1" : {
         "assetname" : "Concrete Panels",
         "assettype" : "PBR Material",

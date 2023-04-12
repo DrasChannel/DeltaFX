@@ -60,6 +60,17 @@
                                 <span class="categoryassetcount">1</span>
                             </div>
                         </div>
+                        <div class="treeviewcategorycontainer">
+                            <div class="treeviewarrow" id="rockarrow" onclick="togglesubcategory('rock');removecategorysearch()"></div>
+                            <span class="treeviewcategory" id="rock" name="rock" onclick="selectcategory(this.id);categorysearch(this.id, this.attributes['name'].value, this.attributes['name'].value)">Rock</span>
+                            <span class="categoryassetcount">1</span>
+                        </div>
+                        <div class="treeviewsubcategorycontainer" id="rocksubcategory">
+                            <div class="categorylinewrapper">
+                                <span class="treeviewsubcategory" id="rockcliff" name="cliff" onclick="selectsubcategory(this.id, 'rock');categorysearch(this.id, 'rock', this.attributes['name'].value)">Cliff</span>
+                                <span class="categoryassetcount">1</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="searchbar-container">
@@ -67,13 +78,14 @@
                         <svg width="24" height="24" style="pointer-events: none;min-width: 26px;"><image href="assets/svg/search.svg" x="0" y="0" width="24" height="24"></image></svg>
                         <div class="search-tags" id="treeview-tag"></div>
                         <div class="search-tags" id="search-tags"></div>
-                        <input class="searchbar-input" id="searchbar-input" type="text" placeholder="Search materials" onfocus="activatesearchbar()">
+                        <input class="searchbar-input" id="searchbar-input" type="text" placeholder="Search materials" onfocus="activatesearchbar()" autocomplete="off">
                     </div>
                     <div class="search-options">
                         <div class="search-option-releasedate">Latest<div class="search-option-arrow"></div></div>
                     </div>
                 </div>
                 <div class="maincontainer" id="maincontainer">
+                    <div class="asset-list-thumb" id="layeredcliff1" onclick="showmatassetcard(this.id);enableselects();"><img src="assets/materials/layeredcliff1/layeredcliff1_thumbnail_640p.webp" class="img" alt="layeredcliff1"><div class="thumbtitlecontainer"><span class="thumbtitle">Layered Cliff</span></div></div>
                     <div class="asset-list-thumb" id="concretepanels1" onclick="showmatassetcard(this.id);enableselects();"><img src="assets/materials/concretepanels1/concretepanels1_thumbnail_640p.webp" class="img" alt="concretepanels1"><div class="thumbtitlecontainer"><span class="thumbtitle">Concrete Panels</span></div></div>
                     <div class="asset-list-thumb" id="plainrust1" onclick="showmatassetcard(this.id);enableselects();"><img src="assets/materials/plainrust1/plainrust1_thumbnail_640p.webp" class="img" alt="plainrust1"><div class="thumbtitlecontainer"><span class="thumbtitle">Plain Rust</span></div></div>
                     <div class="asset-list-thumb" id="mat3" onclick="showmatassetcard(this.id);enableselects();"><img src="assets/testcircle.png" class="img" alt="testcircle"><div class="thumbtitlecontainer"><span class="thumbtitle">Material 3</span></div></div>
