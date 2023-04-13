@@ -6,7 +6,7 @@ function focussearch(event){
 }
 function activatesearchbar(){
     document.getElementById("searchbar").classList.add("active")
-    document.addEventListener('keypress', function (e) {
+    document.addEventListener('keydown', function (e) {
         if (e.key === 'Enter') {
             if(document.getElementById("searchbar-input").value!=""){
                 if(document.getElementById("searchbar-input").value.includes(" ") == true){
@@ -29,6 +29,13 @@ function activatesearchbar(){
                     document.getElementById("searchbar-input").value = ""
                 }
                 
+            }
+        }
+        if (e.key === 'Backspace' && document.getElementById("searchbar-input").value == "") {
+            let alltags = document.querySelectorAll(".s-tag")
+            if(alltags.length>0){
+                alltags[alltags.length- 1].innerHTML = ""
+                alltags[alltags.length- 1].remove()
             }
         }
     });
