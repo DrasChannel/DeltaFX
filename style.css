@@ -656,7 +656,7 @@ body{
     justify-content: center;
     height: 26px;
 }
-.s-tag{
+.s-tag, .t-tag{
     display: flex;
     align-items: center;
     background-color: var(--dark-3);
