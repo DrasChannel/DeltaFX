@@ -65,6 +65,23 @@
         "otherfileids" : ["mesh","rawscan"],
         "category" : "idk",
         "subcategory" : "sample"
+    },
+
+    "mat4" : {
+        "assetname" : "Material 4",
+        "assettype" : "PBR Material",
+        "methodofcreation" : "idk",
+        "releasedate" : "2.9.23",
+        "dimensions" : " idk",
+        "tags" : "idk",
+        "resolutions" : ["4K", "2K"],
+        "fileformats" : ["PNG", "JPEG+OBJ"],
+        "texturemaps" : ["Base Color", "Normal", "Roughness", "Height"],
+        "texturemapids" : ["basecolor", "normalgl", "roughness", "height"],
+        "otherfiles" : ["Mesh (21849 poly)","Raw scan"],
+        "otherfileids" : ["mesh","rawscan"],
+        "category" : "idk",
+        "subcategory" : "sample2"
     }
     
 }

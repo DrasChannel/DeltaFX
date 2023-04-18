@@ -73,7 +73,7 @@ function downloadmaterial(){
         if (this.status === 200) {
             let cookievalue = parseInt(getCookie("D"));
             if(cookievalue>=3){
-                console.log("Error! You are downloading too much. Slow down!")
+                alert("You are downloading too much. Slow down!")
             }
             else{
                 let blob = this.response;
