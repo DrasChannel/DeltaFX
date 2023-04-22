@@ -1,4 +1,21 @@
 {
+    "drysoil1" : {
+        "assetname" : "Dry Soil",
+        "assettype" : "PBR Material",
+        "methodofcreation" : "Procedural (SBS)",
+        "releasedate" : "22/04/2023",
+        "dimensions" : "",
+        "tags" : "Soil Ground Dirt Dust Rocks Mud Dry",
+        "resolutions" : ["8K", "4K", "2K"],
+        "fileformats" : ["PNG", "JPG", "TIF"],
+        "texturemaps" : ["Base Color", "Normal", "Roughness", "Height", "Ambient Occlusion"],
+        "texturemapids" : ["basecolor", "normalgl", "roughness", "height", "ao"],
+        "otherfiles" : ["Sbsar"],
+        "otherfileids" : [".sbsar"],
+        "category" : "ground",
+        "subcategory" : "soil"
+    },
+
     "layeredcliff1" : {
         "assetname" : "Layered Cliff",
         "assettype" : "PBR Material",

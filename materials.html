@@ -34,43 +34,6 @@
             <div class="layout-bottom-assets">
                 <div class="sidebar">
                     <div class="treeview" id="treeview">
-                        <div class="treeviewcategorycontainer">
-                            <div class="treeviewarrow" id="metalarrow" onclick="togglesubcategory('metal');removecategorysearch()"></div>
-                            <span class="treeviewcategory" id="metal" name="metal" onclick="selectcategory(this.id);categorysearch(this.id, this.attributes['name'].value, this.attributes['name'].value)">Metal</span>
-                            <span class="categoryassetcount">1</span>
-                        </div>
-                        <div class="treeviewsubcategorycontainer" id="metalsubcategory">
-                            <div class="categorylinewrapper">
-                                <span class="treeviewsubcategory" id="metalrusty" name="rusty" onclick="selectsubcategory(this.id, 'metal');categorysearch(this.id, 'metal', this.attributes['name'].value)">Rusty</span>
-                                <span class="categoryassetcount">1</span>
-                            </div>
-                            <div class="categorylinewrapper">
-                                <span class="treeviewsubcategory" id="metalclean" name="clean" onclick="selectsubcategory(this.id, 'metal');categorysearch(this.id, 'metal', this.attributes['name'].value)">Clean</span>
-                                <span class="categoryassetcount">0</span>
-                            </div>
-                        </div>
-                        <div class="treeviewcategorycontainer">
-                            <div class="treeviewarrow" id="concretearrow" onclick="togglesubcategory('concrete');removecategorysearch()"></div>
-                            <span class="treeviewcategory" id="concrete" name="concrete" onclick="selectcategory(this.id);categorysearch(this.id, this.attributes['name'].value, this.attributes['name'].value)">Concrete</span>
-                            <span class="categoryassetcount">1</span>
-                        </div>
-                        <div class="treeviewsubcategorycontainer" id="concretesubcategory">
-                            <div class="categorylinewrapper">
-                                <span class="treeviewsubcategory" id="concretepattern" name="pattern" onclick="selectsubcategory(this.id, 'concrete');categorysearch(this.id, 'concrete', this.attributes['name'].value)">Pattern</span>
-                                <span class="categoryassetcount">1</span>
-                            </div>
-                        </div>
-                        <div class="treeviewcategorycontainer">
-                            <div class="treeviewarrow" id="rockarrow" onclick="togglesubcategory('rock');removecategorysearch()"></div>
-                            <span class="treeviewcategory" id="rock" name="rock" onclick="selectcategory(this.id);categorysearch(this.id, this.attributes['name'].value, this.attributes['name'].value)">Rock</span>
-                            <span class="categoryassetcount">1</span>
-                        </div>
-                        <div class="treeviewsubcategorycontainer" id="rocksubcategory">
-                            <div class="categorylinewrapper">
-                                <span class="treeviewsubcategory" id="rockcliff" name="cliff" onclick="selectsubcategory(this.id, 'rock');categorysearch(this.id, 'rock', this.attributes['name'].value)">Cliff</span>
-                                <span class="categoryassetcount">1</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="searchbar-container">
@@ -85,10 +48,6 @@
                     </div>
                 </div>
                 <div class="maincontainer" id="maincontainer">
-                    <div class="asset-list-thumb" id="layeredcliff1" onclick="showmatassetcard(this.id);enableselects();"><img src="assets/materials/layeredcliff1/layeredcliff1_thumbnail_640p.webp" class="img" alt="layeredcliff1"><div class="thumbtitlecontainer"><span class="thumbtitle">Layered Cliff</span></div></div>
-                    <div class="asset-list-thumb" id="concretepanels1" onclick="showmatassetcard(this.id);enableselects();"><img src="assets/materials/concretepanels1/concretepanels1_thumbnail_640p.webp" class="img" alt="concretepanels1"><div class="thumbtitlecontainer"><span class="thumbtitle">Concrete Panels</span></div></div>
-                    <div class="asset-list-thumb" id="plainrust1" onclick="showmatassetcard(this.id);enableselects();"><img src="assets/materials/plainrust1/plainrust1_thumbnail_640p.webp" class="img" alt="plainrust1"><div class="thumbtitlecontainer"><span class="thumbtitle">Plain Rust</span></div></div>
-                    <div class="asset-list-thumb" id="mat3" onclick="showmatassetcard(this.id);enableselects();"><img src="assets/testcircle.png" class="img" alt="testcircle"><div class="thumbtitlecontainer"><span class="thumbtitle">Material 3</span></div></div>
                 </div>
                 <div class="fullscreencontainer" id="fullscreencontainer"></div>
                 <div id="modalbg"></div>

@@ -461,6 +461,7 @@ body{
     width: -webkit-fill-available;
     width: fill-available;
     margin-top: 75px;
+    height: fit-content;
 }
 
 
