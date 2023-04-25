@@ -29,19 +29,29 @@ function generatemattreeview(){
             let currentasset = Object.keys(assetinfo)[i]
             
             if(document.getElementById(assetinfo[currentasset].category+"tcontainer") != null){
-                document.getElementById(assetinfo[currentasset].category+"subcategory").innerHTML += `
-                <div class="categorylinewrapper">
-                    <span class="treeviewsubcategory" id="`+assetinfo[currentasset].category+assetinfo[currentasset].subcategory+`" name="`+assetinfo[currentasset].subcategory+`" onclick="selectsubcategory(this.id, '`+assetinfo[currentasset].category+`');categorysearch(this.id, '`+assetinfo[currentasset].category+`', this.attributes['name'].value)">`+assetinfo[currentasset].subcategory.charAt(0).toUpperCase() + assetinfo[currentasset].subcategory.slice(1)+`</span>
-                    <span class="categoryassetcount" id="categorysubassetcount`+i+`">1</span>
-                </div>
-                `
+                if(document.getElementById(assetinfo[currentasset].category+assetinfo[currentasset].subcategory) != null){
+                    let num = parseInt(document.getElementById(assetinfo[currentasset].category+assetinfo[currentasset].subcategory+"subcount").innerHTML)
+                    document.getElementById(assetinfo[currentasset].category+assetinfo[currentasset].subcategory+"subcount").innerHTML = num+1
+                    let num2 = parseInt(document.getElementById("categoryassetcount"+assetinfo[currentasset].category).innerHTML)
+                    document.getElementById("categoryassetcount"+assetinfo[currentasset].category).innerHTML = num2+1
+                } else{
+                    document.getElementById(assetinfo[currentasset].category+"subcategory").innerHTML += `
+                    <div class="categorylinewrapper">
+                        <span class="treeviewsubcategory" id="`+assetinfo[currentasset].category+assetinfo[currentasset].subcategory+`" name="`+assetinfo[currentasset].subcategory+`" onclick="selectsubcategory(this.id, '`+assetinfo[currentasset].category+`');categorysearch(this.id, '`+assetinfo[currentasset].category+`', this.attributes['name'].value)">`+assetinfo[currentasset].subcategory.charAt(0).toUpperCase() + assetinfo[currentasset].subcategory.slice(1)+`</span>
+                        <span class="categoryassetcount" id="`+assetinfo[currentasset].category+assetinfo[currentasset].subcategory+`subcount">1</span>
+                    </div>
+                    `
+                    let num2 = parseInt(document.getElementById("categoryassetcount"+assetinfo[currentasset].category).innerHTML)
+                    document.getElementById("categoryassetcount"+assetinfo[currentasset].category).innerHTML = num2+1
+                }
+                
             } else {
                 
                 document.getElementById("treeview").innerHTML += `
                 <div class="treeviewcategorycontainer" id="`+assetinfo[currentasset].category+`tcontainer">
                 <div class="treeviewarrow" id="`+assetinfo[currentasset].category+`arrow" onclick="togglesubcategory('`+assetinfo[currentasset].category+`');removecategorysearch()"></div>
                 <span class="treeviewcategory" id="`+assetinfo[currentasset].category+`" name="`+assetinfo[currentasset].category+`" onclick="selectcategory(this.id);categorysearch(this.id, this.attributes['name'].value, this.attributes['name'].value)">`+assetinfo[currentasset].category.charAt(0).toUpperCase() + assetinfo[currentasset].category.slice(1)+`</span>
-                <span class="categoryassetcount" id="categoryassetcount`+i+`">1</span>
+                <span class="categoryassetcount" id="categoryassetcount`+assetinfo[currentasset].category+`">1</span>
                 </div>
                 `
                 document.getElementById("treeview").innerHTML += `
@@ -51,17 +61,17 @@ function generatemattreeview(){
                 document.getElementById(assetinfo[currentasset].category+"subcategory").innerHTML += `
                 <div class="categorylinewrapper">
                     <span class="treeviewsubcategory" id="`+assetinfo[currentasset].category+assetinfo[currentasset].subcategory+`" name="`+assetinfo[currentasset].subcategory+`" onclick="selectsubcategory(this.id, '`+assetinfo[currentasset].category+`');categorysearch(this.id, '`+assetinfo[currentasset].category+`', this.attributes['name'].value)">`+assetinfo[currentasset].subcategory.charAt(0).toUpperCase() + assetinfo[currentasset].subcategory.slice(1)+`</span>
-                    <span class="categoryassetcount" id="categorysubassetcount`+i+`">1</span>
+                    <span class="categoryassetcount" id="`+assetinfo[currentasset].category+assetinfo[currentasset].subcategory+`subcount">1</span>
                 </div>
                 `
             }
         }
 
-        for(let i = 0; i < Object.keys(assetinfo).length; i++){
+        /*for(let i = 0; i < Object.keys(assetinfo).length; i++){
             let currentasset = Object.keys(assetinfo)[i]
 
-            document.getElementById("categoryassetcount"+i).innerHTML = document.getElementById(assetinfo[currentasset].category+"subcategory").childElementCount;
-        }
+            document.getElementById("categoryassetcount"+assetinfo[currentasset].category).innerHTML = document.getElementById(assetinfo[currentasset].category+"subcategory").childElementCount;
+        }*/
     }
 }
 
