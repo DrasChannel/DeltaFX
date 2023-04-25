@@ -14,18 +14,21 @@ function activatesearchbar(){
 
                     for (let i = 0; i < moretags.length; i++) {
                         if(moretags[i] != ''){
-                            console.log(moretags[i])
-                            document.getElementById("search-tags").innerHTML += `
-                            <div class="s-tag" id="`+moretags[i]+"stag"+`">`+moretags[i]+`<div class="cancel-s-tag" onClick="removestag(this.id)" id="`+moretags[i]+"stag"+`"></div></div>
-                            `
+                            if(document.getElementById(moretags[i]+"stag") == null){
+                                document.getElementById("search-tags").innerHTML += `
+                                <div class="s-tag" id="`+moretags[i]+"stag"+`">`+moretags[i]+`<div class="cancel-s-tag" onClick="removestag(this.id)" id="`+moretags[i]+"stag"+`"></div></div>
+                                `
+                            }
                             document.getElementById("searchbar-input").value = ""
                         }
                         
                     }
                 } else {
-                    document.getElementById("search-tags").innerHTML += `
-                    <div class="s-tag" id="`+document.getElementById("searchbar-input").value+"stag"+`">`+document.getElementById("searchbar-input").value+`<div class="cancel-s-tag" onClick="removestag(this.id)" id="`+document.getElementById("searchbar-input").value+"stag"+`"></div></div>
-                    `
+                    if(document.getElementById(document.getElementById("searchbar-input").value+"stag") == null){
+                        document.getElementById("search-tags").innerHTML += `
+                        <div class="s-tag" id="`+document.getElementById("searchbar-input").value+"stag"+`">`+document.getElementById("searchbar-input").value+`<div class="cancel-s-tag" onClick="removestag(this.id)" id="`+document.getElementById("searchbar-input").value+"stag"+`"></div></div>
+                        `
+                    }
                     document.getElementById("searchbar-input").value = ""
                 }
                 

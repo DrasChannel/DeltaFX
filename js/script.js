@@ -17,7 +17,7 @@ swup.on('contentReplaced', generatematthumbs);
 // Define the function that does scrolling and fading
 
 
-// function that decides if the function above is going to be executed
+// functions
 function scrolltotop(){
     window.scrollTo({top: 0,behavior: 'instant'});
 }
@@ -66,12 +66,6 @@ function generatemattreeview(){
                 `
             }
         }
-
-        /*for(let i = 0; i < Object.keys(assetinfo).length; i++){
-            let currentasset = Object.keys(assetinfo)[i]
-
-            document.getElementById("categoryassetcount"+assetinfo[currentasset].category).innerHTML = document.getElementById(assetinfo[currentasset].category+"subcategory").childElementCount;
-        }*/
     }
 }
 
