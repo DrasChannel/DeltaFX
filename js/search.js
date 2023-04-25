@@ -19,7 +19,7 @@ function activatesearchbar(){
                                 <div class="s-tag" id="`+moretags[i]+"stag"+`">`+moretags[i]+`<div class="cancel-s-tag" onClick="removestag(this.id)" id="`+moretags[i]+"stag"+`"></div></div>
                                 `
                             }
-                            document.getElementById("searchbar-input").value = ""
+                            document.getElementById("searchbar-input").value = ""                   
                         }
                         
                     }
@@ -75,4 +75,8 @@ function categorysearch(clickid, categoryid, subcatid){
 
 function removecategorysearch() {
     document.getElementById("treeview-tag"). innerHTML = ""
+}
+
+function search(){
+    alert("searched")
 }
