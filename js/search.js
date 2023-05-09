@@ -1,11 +1,56 @@
+let ran = false
+
 function focussearch(event){
     if (event.target === document.getElementById("searchbar")) {
         document.getElementById("searchbar-input").focus()
         activatesearchbar()
     }
 }
+
+
+
 function activatesearchbar(){
+        
     document.getElementById("searchbar").classList.add("active")
+
+    if(ran == false){
+        addsearchfunctionality()
+    }
+    ran = true
+
+    
+    let clickonsearch
+    clickonsearch = document.addEventListener("mousedown", function clickoffsearch(event) {
+        if (event.target !== document.getElementById("searchbar")) {
+            if (event.target !== document.getElementById("searchbar-input")) {
+                document.getElementById("searchbar").classList.remove("active")
+                clickonsearch = document.removeEventListener("mousedown", clickoffsearch)
+            }
+        }
+    });
+}
+function addsearchfunctionality(){
+    // MUTATION OBSERVER
+    // Select the element to observe
+    let targetNode = document.getElementById('search-tags');
+    // Create an observer instance
+    let observer = new MutationObserver(function(mutations) {
+        if (!observer.isCallingFunction) {
+            observer.isCallingFunction = true;
+            search();
+            setTimeout(function() {
+                observer.isCallingFunction = false;
+            }, 0);
+        }
+    });
+    // Set initial flag value
+    observer.isCallingFunction = false;
+    // Options for the observer (which mutations to observe)
+    let config = { childList: true, subtree: true, attributes: true, characterData: true };
+    // Start observing the target node for configured mutations
+    observer.observe(targetNode, config);
+
+    
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Enter') {
             if(document.getElementById("searchbar-input").value!=""){
@@ -42,16 +87,9 @@ function activatesearchbar(){
             }
         }
     });
-    let clickonsearch
-    clickonsearch = document.addEventListener("mousedown", function clickoffsearch(event) {
-        if (event.target !== document.getElementById("searchbar")) {
-            if (event.target !== document.getElementById("searchbar-input")) {
-                document.getElementById("searchbar").classList.remove("active")
-                clickonsearch = document.removeEventListener("mousedown", clickoffsearch)
-            }
-        }
-    });
 }
+
+
 
 function removestag(sname){
     document.getElementById(sname).remove()
@@ -78,5 +116,5 @@ function removecategorysearch() {
 }
 
 function search(){
-    alert("searched")
+    console.log("searched")
 }
