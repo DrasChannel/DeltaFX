@@ -1,4 +1,6 @@
 let ran = false
+var searchquery = [];
+var filtereditems = [];
 
 function focussearch(event){
     if (event.target === document.getElementById("searchbar")) {
@@ -64,6 +66,7 @@ function addsearchfunctionality(){
                                 <div class="s-tag" id="`+moretags[i]+"stag"+`">`+moretags[i]+`<div class="cancel-s-tag" onClick="removestag(this.id)" id="`+moretags[i]+"stag"+`"></div></div>
                                 `
                             }
+                            searchquery.push(moretags[i]);
                             document.getElementById("searchbar-input").value = ""                   
                         }
                         
@@ -74,6 +77,7 @@ function addsearchfunctionality(){
                         <div class="s-tag" id="`+document.getElementById("searchbar-input").value+"stag"+`">`+document.getElementById("searchbar-input").value+`<div class="cancel-s-tag" onClick="removestag(this.id)" id="`+document.getElementById("searchbar-input").value+"stag"+`"></div></div>
                         `
                     }
+                    searchquery.push(document.getElementById("searchbar-input").value);
                     document.getElementById("searchbar-input").value = ""
                 }
                 
@@ -84,6 +88,7 @@ function addsearchfunctionality(){
             if(alltags.length>0){
                 alltags[alltags.length- 1].innerHTML = ""
                 alltags[alltags.length- 1].remove()
+                searchquery.pop();
             }
         }
     });
@@ -93,6 +98,10 @@ function addsearchfunctionality(){
 
 function removestag(sname){
     document.getElementById(sname).remove()
+    let index = array.indexOf(sname);
+    if (index > -1) {
+        array.splice(index, 1);
+    }
 }
 
 function categorysearch(clickid, categoryid, subcatid){
@@ -117,4 +126,32 @@ function removecategorysearch() {
 
 function search(){
     console.log("searched")
+    
+
+    if(searchquery.length >= 1){
+        for(let i = 0; i < Object.keys(assetinfo).length; i++){
+            let currentasset = Object.keys(assetinfo)[i]
+            let currenttags = assetinfo[currentasset].tags.split(" ");
+            let counter = 0
+            for(let c = 0; c < searchquery.length; c++){
+                if(counter == 0){
+                    if(currenttags.includes(searchquery[c]) == true) {
+                        counter = 1
+                        filtereditems.push(currentasset)
+                    }
+                }
+            }
+        }
+        generatematthumbs(true)
+        filtereditems = [];
+    }
+    else {
+        filtereditems = [];
+        generatematthumbs()
+    }
+    
+
+    console.log(filtereditems)
+
+    
 }

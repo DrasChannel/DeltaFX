@@ -69,11 +69,18 @@ function generatemattreeview(){
     }
 }
 
-function generatematthumbs(){
+function generatematthumbs(issearched){
+    let assetarray
+    if(issearched == true){
+        assetarray = filtereditems
+    }
+    else {
+        assetarray = Object.keys(assetinfo)
+    }
     if(window.location.href.indexOf("materials") > -1){
         document.getElementById("maincontainer").innerHTML = ""
-        for(let i = 0; i < Object.keys(assetinfo).length; i++){
-            let currentasset = Object.keys(assetinfo)[i]
+        for(let i = 0; i < assetarray.length; i++){
+            let currentasset = assetarray[i]
 
             document.getElementById("maincontainer").innerHTML += `
             <div class="asset-list-thumb" id="`+currentasset+`" onclick="showmatassetcard(this.id);enableselects();"><img src="assets/materials/`+currentasset+`/`+currentasset+`_thumbnail_640p.webp" class="img" alt="`+currentasset+`"><div class="thumbtitlecontainer"><span class="thumbtitle">`+assetinfo[currentasset].assetname+`</span></div></div>
