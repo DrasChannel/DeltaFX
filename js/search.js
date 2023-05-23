@@ -97,11 +97,21 @@ function addsearchfunctionality(){
 
 
 function removestag(sname){
+    
+    searchquery = searchquery.map(searchquer => searchquer.toLowerCase());
+    let smallsname = sname.toLowerCase().replace("stag", "")
+    let index2 = searchquery.indexOf(smallsname);
+    searchquery.splice(index2, 1)
+    search()
+    
     document.getElementById(sname).remove()
-    let index = array.indexOf(sname);
+    
+    
+    /*let index = array.indexOf(sname);
+    console.log(index)
     if (index > -1) {
         array.splice(index, 1);
-    }
+    }*/
 }
 
 function categorysearch(clickid, categoryid, subcatid){
