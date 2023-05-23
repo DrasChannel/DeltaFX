@@ -14,6 +14,10 @@ swup.on('contentReplaced', scrolltotop);
 swup.on('contentReplaced', generatemattreeview);
 swup.on('contentReplaced', generatematthumbs);
 
+swup.on('contentReplaced', function(){
+    searchran = false
+});
+
 // Define the function that does scrolling and fading
 
 

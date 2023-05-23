@@ -1,4 +1,4 @@
-let ran = false
+var searchran = false
 var searchquery = [];
 var filtereditems = [];
 
@@ -15,10 +15,10 @@ function activatesearchbar(){
         
     document.getElementById("searchbar").classList.add("active")
 
-    if(ran == false){
+    if(searchran == false){
         addsearchfunctionality()
     }
-    ran = true
+    searchran = true
 
     
     let clickonsearch
