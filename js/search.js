@@ -126,20 +126,27 @@ function removecategorysearch() {
 
 function search(){
     console.log("searched")
-    
+
+    searchquery = searchquery.map(searchquer => searchquer.toLowerCase());
+    console.log(searchquery)
 
     if(searchquery.length >= 1){
+        filtereditems = [];
         for(let i = 0; i < Object.keys(assetinfo).length; i++){
             let currentasset = Object.keys(assetinfo)[i]
             let currenttags = assetinfo[currentasset].tags.split(" ");
+            currenttags = currenttags.map(currenttag => currenttag.toLowerCase());
             let counter = 0
             for(let c = 0; c < searchquery.length; c++){
-                if(counter == 0){
+                /*if(counter == 0){*/
                     if(currenttags.includes(searchquery[c]) == true) {
-                        counter = 1
-                        filtereditems.push(currentasset)
+                        counter = counter + 1
+                        
                     }
-                }
+                /*}*/
+            }
+            if(counter == searchquery.length){
+                filtereditems.push(currentasset)
             }
         }
         generatematthumbs(true)
