@@ -7,12 +7,14 @@ if (document.readyState === 'complete') {
     document.addEventListener('DOMContentLoaded', () => scrolltotop());
     document.addEventListener('DOMContentLoaded', () => generatemattreeview());
     document.addEventListener('DOMContentLoaded', () => generatematthumbs());
+    document.addEventListener('DOMContentLoaded', () => materialtreeview());
 }
   
 // run after every additional navigation by swup
 swup.on('contentReplaced', scrolltotop);
 swup.on('contentReplaced', generatemattreeview);
 swup.on('contentReplaced', generatematthumbs);
+swup.on('contentReplaced', materialtreeview);
 
 swup.on('contentReplaced', function(){
     searchran = false
@@ -22,6 +24,7 @@ swup.on('contentReplaced', function(){
 
 
 // functions
+
 function scrolltotop(){
     window.scrollTo({top: 0,behavior: 'instant'});
 }
@@ -70,6 +73,12 @@ function generatemattreeview(){
                 `
             }
         }
+    }
+}
+
+function materialtreeview() {
+    if(window.location.href.indexOf("materials") > -1){
+        addtreeviewfunctionality()
     }
 }
 

@@ -1,6 +1,7 @@
 var searchran = false
 var searchquery = [];
 var filtereditems = [];
+var precategoryfiltered = [];
 
 function focussearch(event){
     if (event.target === document.getElementById("searchbar")) {
@@ -93,7 +94,31 @@ function addsearchfunctionality(){
         }
     });
 }
-
+function addtreeviewfunctionality() {
+    
+    // MUTATION OBSERVER
+    // Select the element to observe
+    let targetNode = document.getElementById('treeview-tag');
+    let targetNode2 = document.querySelector(".t-tag");
+    // Create an observer instance
+    let observer = new MutationObserver(function(mutations) {
+        if (!observer.isCallingFunction) {
+            observer.isCallingFunction = true;
+            console.log("changed")
+            categoryfilter()
+            setTimeout(function() {
+                observer.isCallingFunction = false;
+            }, 0);
+        }
+    });
+    // Set initial flag value
+    observer.isCallingFunction = false;
+    // Options for the observer (which mutations to observe)
+    let config = { childList: true, subtree: true, attributes: true, characterData: true };
+    // Start observing the target node for configured mutations
+    observer.observe(targetNode, config);
+    observer.observe(targetNode2, config);
+}
 
 
 function removestag(sname){
@@ -135,10 +160,7 @@ function removecategorysearch() {
 }
 
 function search(){
-    console.log("searched")
-
     searchquery = searchquery.map(searchquer => searchquer.toLowerCase());
-    console.log(searchquery)
 
     if(searchquery.length >= 1){
         filtereditems = [];
@@ -159,16 +181,41 @@ function search(){
                 filtereditems.push(currentasset)
             }
         }
+        precategoryfiltered = filtereditems
         generatematthumbs(true)
         filtereditems = [];
     }
     else {
         filtereditems = [];
+        precategoryfiltered = filtereditems
         generatematthumbs()
     }
-    
+}
 
-    console.log(filtereditems)
-
+function categoryfilter(){
+    let aftercategoryfiltered = [];
+    let targetcategory;
+    let targetsubcategory;
+    if(precategoryfiltered.length <= 1) {
+        precategoryfiltered = Object.keys(assetinfo)
+    }
+    console.log(precategoryfiltered)
+    if (document.querySelector(".t-tag") !== null) {
+        if(document.querySelector(".t-tag").innerHTML.indexOf("/") > -1){
+            targetcategory = document.querySelector(".t-tag").innerHTML.split("/")[0]
+            targetsubcategory = document.querySelector(".t-tag").innerHTML.split("/")[1]
+            console.log(targetcategory)
+            console.log(targetsubcategory)
+        }
+        else {
+            targetcategory = document.querySelector(".t-tag").innerHTML
+            targetsubcategory = null
+            console.log(targetcategory)
+            console.log(targetsubcategory)
+        }
+        precategoryfiltered.forEach(function(precategoryel){
+            //check if precategoryel contains target category and subcategory
+        });
+    }
     
 }

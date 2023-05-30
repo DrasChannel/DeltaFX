@@ -602,7 +602,7 @@ body{
     margin: 0 60px;
     align-items: center;
     transition: all 150ms;
-    max-width: 900px;
+    max-width: 1000px;
     width: -webkit-fill-available;
     width: -moz-available;
     width: fill-available;
