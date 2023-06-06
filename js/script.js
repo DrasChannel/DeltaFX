@@ -79,6 +79,7 @@ function generatemattreeview(){
 function materialtreeview() {
     if(window.location.href.indexOf("materials") > -1){
         addtreeviewfunctionality()
+        addsearchfunctionality()
     }
 }
 

@@ -1,8 +1,11 @@
-var searchran = false
-var searchquery = [];
-var filtereditems = [];
-var precategoryfiltered = [];
-var finalfilter = [];
+// Js that contains the search functionality, for searchbar and treeview.
+
+var searchran = false   // checks if we have activated the searchbar
+var searchquery = [];   // array that stores all the individual values that we type into search query. It is used in the search function.
+var filtereditems = [];   // array of items that come out from the search function. ( The items we are searching for using the searchbar )
+var precategoryfiltered = [];   // array of items that come into the category filtering function ( They are passed from the search function (filtereditems variable) )
+var finalfilter = [];   // Final array of filtered items. Based on this, the material thumbnails will be displayed
+
 
 function focussearch(event){
     if (event.target === document.getElementById("searchbar")) {
@@ -105,7 +108,6 @@ function addtreeviewfunctionality() {
     let observer = new MutationObserver(function(mutations) {
         if (!observer.isCallingFunction) {
             observer.isCallingFunction = true;
-            console.log("changed")
             categoryfilter()
             setTimeout(function() {
                 observer.isCallingFunction = false;
@@ -160,71 +162,80 @@ function removecategorysearch() {
     document.getElementById("treeview-tag"). innerHTML = ""
 }
 
+// Search function (launches when something changes in the searchquery)
 function search(){
+    // put everything from search query array to lower case
     searchquery = searchquery.map(searchquer => searchquer.toLowerCase());
 
+    // Check if there is something in the searchquery. If there is something, proceed to filtering, if not, then move on to filtering by categories.
     if(searchquery.length >= 1){
         filtereditems = [];
+
+        // for each asset check if it contains the searched values in it's tags. If it does put it in the filtered items array
         for(let i = 0; i < Object.keys(assetinfo).length; i++){
+            // define current asset and it's tags and put them to lowercase
             let currentasset = Object.keys(assetinfo)[i]
             let currenttags = assetinfo[currentasset].tags.split(" ");
             currenttags = currenttags.map(currenttag => currenttag.toLowerCase());
+            // set counter to 0
             let counter = 0
+            // For each searchquery value, check if it's included in the asset's tags. If it is, then add 1 to the counter. Finally if the counter value equals
+            // the count of searquery values, it means that all th values from the searchquery are included in the asset's tags, so the asset can be added
+            // to the filtered items list
             for(let c = 0; c < searchquery.length; c++){
-                /*if(counter == 0){*/
-                    if(currenttags.includes(searchquery[c]) == true) {
-                        counter = counter + 1
-                        
-                    }
-                /*}*/
+                if(currenttags.includes(searchquery[c]) == true) {
+                    counter = counter + 1
+                }
             }
             if(counter == searchquery.length){
                 filtereditems.push(currentasset)
             }
         }
+
+        // pass the filtered items to the precategoryfiltered variable and continue to category filtering.
         precategoryfiltered = filtereditems
         categoryfilter()
         filtereditems = [];
     }
     else {
-        filtereditems = [];
-        precategoryfiltered = filtereditems
+        // since nothing there was nothing in the searchquery, we aren't searching for anything, so we can add all elements into the precategoryfiltered
+        // variable and move on to category fitering.
+        precategoryfiltered = Object.keys(assetinfo)
         categoryfilter()
     }
 }
 
+// Category filtering. Launched from search filtering when it's done.
 function categoryfilter(){
     let aftercategoryfiltered = [];
     let targetcategory;
     let targetsubcategory;
-    if(precategoryfiltered.length < 1) {
-        precategoryfiltered = Object.keys(assetinfo)
-    }
-    console.log(precategoryfiltered)
     if (document.querySelector(".t-tag") !== null) {
         if(document.querySelector(".t-tag").innerHTML.indexOf("/") > -1){
             targetcategory = document.querySelector(".t-tag").innerHTML.split("/")[0].toLowerCase()
             targetsubcategory = document.querySelector(".t-tag").innerHTML.split("/")[1].toLowerCase()
-            console.log(targetcategory)
-            console.log(targetsubcategory)
         }
         else {
             targetcategory = document.querySelector(".t-tag").innerHTML.toLowerCase()
             targetsubcategory = null
-            console.log(targetcategory)
-            console.log(targetsubcategory)
         }
         precategoryfiltered.forEach(function(precategoryel){
             //check if precategoryel contains target category and subcategory
             if(assetinfo[precategoryel].category == targetcategory) {
-                aftercategoryfiltered.push(precategoryel)
+                if(targetsubcategory == null){
+                    aftercategoryfiltered.push(precategoryel)
+                }
+                else{
+                    if(assetinfo[precategoryel].subcategory == targetsubcategory) {
+                        aftercategoryfiltered.push(precategoryel)
+                    }
+                }
             }
         });
     }
     else {
         aftercategoryfiltered = precategoryfiltered
     }
-    console.log(aftercategoryfiltered)
     if(aftercategoryfiltered.length > 0){
         finalfilter = aftercategoryfiltered
         generatematthumbs(true)
