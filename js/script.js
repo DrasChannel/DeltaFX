@@ -85,7 +85,7 @@ function materialtreeview() {
 function generatematthumbs(issearched){
     let assetarray
     if(issearched == true){
-        assetarray = filtereditems
+        assetarray = finalfilter
     }
     else {
         assetarray = Object.keys(assetinfo)

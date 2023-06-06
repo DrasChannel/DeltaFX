@@ -2,6 +2,7 @@ var searchran = false
 var searchquery = [];
 var filtereditems = [];
 var precategoryfiltered = [];
+var finalfilter = [];
 
 function focussearch(event){
     if (event.target === document.getElementById("searchbar")) {
@@ -182,13 +183,13 @@ function search(){
             }
         }
         precategoryfiltered = filtereditems
-        generatematthumbs(true)
+        categoryfilter()
         filtereditems = [];
     }
     else {
         filtereditems = [];
         precategoryfiltered = filtereditems
-        generatematthumbs()
+        categoryfilter()
     }
 }
 
@@ -196,26 +197,52 @@ function categoryfilter(){
     let aftercategoryfiltered = [];
     let targetcategory;
     let targetsubcategory;
-    if(precategoryfiltered.length <= 1) {
+    if(precategoryfiltered.length < 1) {
         precategoryfiltered = Object.keys(assetinfo)
     }
     console.log(precategoryfiltered)
     if (document.querySelector(".t-tag") !== null) {
         if(document.querySelector(".t-tag").innerHTML.indexOf("/") > -1){
-            targetcategory = document.querySelector(".t-tag").innerHTML.split("/")[0]
-            targetsubcategory = document.querySelector(".t-tag").innerHTML.split("/")[1]
+            targetcategory = document.querySelector(".t-tag").innerHTML.split("/")[0].toLowerCase()
+            targetsubcategory = document.querySelector(".t-tag").innerHTML.split("/")[1].toLowerCase()
             console.log(targetcategory)
             console.log(targetsubcategory)
         }
         else {
-            targetcategory = document.querySelector(".t-tag").innerHTML
+            targetcategory = document.querySelector(".t-tag").innerHTML.toLowerCase()
             targetsubcategory = null
             console.log(targetcategory)
             console.log(targetsubcategory)
         }
         precategoryfiltered.forEach(function(precategoryel){
             //check if precategoryel contains target category and subcategory
+            if(assetinfo[precategoryel].category == targetcategory) {
+                aftercategoryfiltered.push(precategoryel)
+            }
         });
     }
+    else {
+        aftercategoryfiltered = precategoryfiltered
+    }
+    console.log(aftercategoryfiltered)
+    if(aftercategoryfiltered.length > 0){
+        finalfilter = aftercategoryfiltered
+        generatematthumbs(true)
+    }
+    else {
+        finalfilter = aftercategoryfiltered
+        if(searchquery.length < 1) {
+            if (document.querySelector(".t-tag") !== null) {
+                generatematthumbs(true)
+            }
+            else {
+                generatematthumbs()
+            }
+        }
+        else{
+            generatematthumbs(true)
+        }
+    }
+    
     
 }
