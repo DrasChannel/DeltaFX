@@ -20,9 +20,9 @@ function activatesearchbar(){
         
     document.getElementById("searchbar").classList.add("active")
 
-    if(searchran == false){
+    /*if(searchran == false){
         addsearchfunctionality()
-    }
+    }*/
     searchran = true
 
     
@@ -81,8 +81,8 @@ function addsearchfunctionality(){
                         document.getElementById("search-tags").innerHTML += `
                         <div class="s-tag" id="`+document.getElementById("searchbar-input").value+"stag"+`">`+document.getElementById("searchbar-input").value+`<div class="cancel-s-tag" onClick="removestag(this.id)" id="`+document.getElementById("searchbar-input").value+"stag"+`"></div></div>
                         `
+                        searchquery.push(document.getElementById("searchbar-input").value);
                     }
-                    searchquery.push(document.getElementById("searchbar-input").value);
                     document.getElementById("searchbar-input").value = ""
                 }
                 
@@ -154,7 +154,7 @@ function categorysearch(clickid, categoryid, subcatid){
             `
         } 
     } else {
-        document.getElementById("treeview-tag"). innerHTML = ""
+        document.getElementById("treeview-tag"). innerHTML = `<div class="t-tag" style="display: none;"></div>`
     }
 }
 
@@ -167,6 +167,7 @@ function search(){
     // put everything from search query array to lower case
     searchquery = searchquery.map(searchquer => searchquer.toLowerCase());
 
+    console.log(searchquery)
     // Check if there is something in the searchquery. If there is something, proceed to filtering, if not, then move on to filtering by categories.
     if(searchquery.length >= 1){
         filtereditems = [];
@@ -207,10 +208,14 @@ function search(){
 
 // Category filtering. Launched from search filtering when it's done.
 function categoryfilter(){
+    // a variable for the filtered elements from this function
     let aftercategoryfiltered = [];
+
     let targetcategory;
     let targetsubcategory;
-    if (document.querySelector(".t-tag") !== null) {
+    //check if something is selected in the treeview (if the element t-tag exists)
+    if (window.getComputedStyle(document.querySelector(".t-tag")).display !== "none") {
+        // If the treeview tag contains both a category and a subcategory, then split them. If not, then just leave the subcategory variable empty.
         if(document.querySelector(".t-tag").innerHTML.indexOf("/") > -1){
             targetcategory = document.querySelector(".t-tag").innerHTML.split("/")[0].toLowerCase()
             targetsubcategory = document.querySelector(".t-tag").innerHTML.split("/")[1].toLowerCase()
@@ -222,6 +227,7 @@ function categoryfilter(){
         precategoryfiltered.forEach(function(precategoryel){
             //check if precategoryel contains target category and subcategory
             if(assetinfo[precategoryel].category == targetcategory) {
+                //check if subctagegory is set
                 if(targetsubcategory == null){
                     aftercategoryfiltered.push(precategoryel)
                 }
@@ -236,6 +242,8 @@ function categoryfilter(){
     else {
         aftercategoryfiltered = precategoryfiltered
     }
+    //Chack if the aftercategoryfiltered contains something. If it does, pass it to finalfilter and generate thumbnails.
+    //If not, find out if it is because there are no search results or beacuse we didn't search for anything.
     if(aftercategoryfiltered.length > 0){
         finalfilter = aftercategoryfiltered
         generatematthumbs(true)
@@ -243,7 +251,7 @@ function categoryfilter(){
     else {
         finalfilter = aftercategoryfiltered
         if(searchquery.length < 1) {
-            if (document.querySelector(".t-tag") !== null) {
+            if (window.getComputedStyle(document.querySelector(".t-tag")).display !== "none") {
                 generatematthumbs(true)
             }
             else {

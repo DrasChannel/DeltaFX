@@ -25,10 +25,12 @@ swup.on('contentReplaced', function(){
 
 // functions
 
+// Scrools to the top of the page when reloading or switching pages
 function scrolltotop(){
     window.scrollTo({top: 0,behavior: 'instant'});
 }
 
+// Generates the treeview for materials from the json data
 function generatemattreeview(){
     if(window.location.href.indexOf("materials") > -1){
         document.getElementById("treeview").innerHTML = ""
@@ -76,13 +78,18 @@ function generatemattreeview(){
     }
 }
 
+// Adds functionality to the searchabr and treeview when switching pages
 function materialtreeview() {
     if(window.location.href.indexOf("materials") > -1){
-        addtreeviewfunctionality()
-        addsearchfunctionality()
+        setTimeout(addtreeviewfunctionality,300);
+        setTimeout(addsearchfunctionality,300);
+        setTimeout(search,300);
+        /*addtreeviewfunctionality()
+        addsearchfunctionality()*/
     }
 }
 
+// Generate the materials asset thumbnails from the json and search data
 function generatematthumbs(issearched){
     let assetarray
     if(issearched == true){
