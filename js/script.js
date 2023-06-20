@@ -81,6 +81,7 @@ function generatemattreeview(){
 // Adds functionality to the searchabr and treeview when switching pages
 function materialtreeview() {
     if(window.location.href.indexOf("materials") > -1){
+        searchquery = [];
         setTimeout(addtreeviewfunctionality,300);
         setTimeout(addsearchfunctionality,300);
         setTimeout(search,300);
